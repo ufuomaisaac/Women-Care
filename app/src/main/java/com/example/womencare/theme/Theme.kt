@@ -1,4 +1,4 @@
-package com.example.womencare.ui.theme
+package com.example.womencare.theme
 
 import android.app.Activity
 import android.os.Build
