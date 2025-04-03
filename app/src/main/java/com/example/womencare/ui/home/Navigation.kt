@@ -49,18 +49,17 @@ fun OnEntryNavigation(
             )
         }
 
-        composable(route = SURVEY_ROUTE) {
-            /*SurveyRoute(
+       /* composable(route = SURVEY_ROUTE) {
+            *//*SurveyRoute(
                 onSurveyComplete = { navController.navigate(route = MAIN_ROUTE)},
-                onNavUp ={ navController.navigate(route = MAIN_ROUTE) } )*/
-        }
+                onNavUp ={ navController.navigate(route = MAIN_ROUTE) } )*//*
+        }*/
 
         composable(route = MAIN_ROUTE) {
             MainScreen(context = context )
 
-            // ChatRoute()
         }
-        composable(route = AI_ROUTE) {
-        }
+        /*composable(route = AI_ROUTE) {
+        }*/
     }
 }

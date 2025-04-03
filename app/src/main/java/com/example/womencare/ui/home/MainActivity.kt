@@ -89,25 +89,17 @@ fun  MainScreen(context: MainActivity) {
             modifier = Modifier.padding(padding)) {
 
             composable(MainBottomDestinations.Home.route) {
-                /* HomeScreen(
-                     navController = navController,
-                     onNavigateToReward = { *//*TODO*//* },
-                   userName = "Ufuoma",
-                   userCredit = "123",
-                   context = context
-               )*/
+
             }
 
-            /*composable(MainBottomDestinations.Map.route) {
-                *//* val intent = Intent(context, ChatbotActivity::class.java)
-                 context.startActivity(intent)*//*
-                ChatRoute()
+            composable(MainBottomDestinations.Map.route) {
+
             }
             composable(MainBottomDestinations.Library.route) {
-                UserProfile(navController = navController)
+
             }
 
-            composable(Articles.CheckUpScreen.name) {
+            /*composable(Articles.CheckUpScreen.name) {
 
             }
 
