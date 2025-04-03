@@ -17,5 +17,4 @@ class AppModule {
     @Singleton
     fun provideFireBaseAuth(): FirebaseAuth =
         Firebase.auth
-
 }
