@@ -1,4 +1,4 @@
-/*
+
 package com.example.womencare.ui.home
 
 import SignInScreen
@@ -8,8 +8,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.mothercare.ui.scene.auth.signup.SignUpScreen
+import com.example.womencare.ui.home.Destinations.SIGN_IN_ROUTE
 import com.example.womencare.ui.home.Destinations.SIGN_UP_ROUTE
-
+import com.example.womencare.ui.home.Destinations.SURVEY_ROUTE
+import com.example.womencare.ui.home.Destinations.MAIN_ROUTE
+import com.example.womencare.ui.home.Destinations.AI_ROUTE
 object Destinations{
     const val SIGN_UP_ROUTE = "signup"
     const val SIGN_IN_ROUTE = "signin"
@@ -20,7 +24,7 @@ object Destinations{
 }
 
 @Composable
-fun OnEntryNavigatiion(
+fun OnEntryNavigation(
     navController: NavHostController = rememberNavController(),
     context: MainActivity
 ) {
@@ -39,40 +43,24 @@ fun OnEntryNavigatiion(
 
         composable(route = SIGN_IN_ROUTE) {
             SignInScreen(
-                onSignInSubmitted = { _, _ -> navController.navigate(SURVEY_ROUTE)},
+                onSignInSubmitted = { _, _ -> navController.navigate(MAIN_ROUTE)},
                 onNavUp = { navController.navigateUp() },
                 modifier = Modifier
             )
         }
 
         composable(route = SURVEY_ROUTE) {
-            SurveyRoute(
+            /*SurveyRoute(
                 onSurveyComplete = { navController.navigate(route = MAIN_ROUTE)},
-                onNavUp ={ navController.navigate(route = MAIN_ROUTE) } )
+                onNavUp ={ navController.navigate(route = MAIN_ROUTE) } )*/
         }
 
         composable(route = MAIN_ROUTE) {
-*/
-/* HomeScreen(
-                 context = context,
-                 navController = navController,
-                 onNavigateToReward = {navController.navigate(route = AI_ROUTE)},
-                 modifier = Modifier,
-                 userName = "Isaac",
-                 userCredit = "234")*//*
-*/
-/*
-
-
-            MainScreen(context = context)
+            MainScreen(context = context )
 
             // ChatRoute()
         }
-
         composable(route = AI_ROUTE) {
-            ChatRoute()
         }
     }
-*//*
-
-}*/
+}

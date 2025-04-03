@@ -1,8 +1,10 @@
 package com.example.mothercare.ui.scene.auth.signup
 
+import CityDropdown
 import Email
 import Password
 import SignInTopAppBar
+import StateCityDropdown
 import TextButton
 import android.util.Log
 import android.widget.Toast
@@ -120,6 +122,10 @@ fun SignUpContent(
 
         Spacer(modifier = Modifier.height(32.dp))
 
+        StateCityDropdown()
+
+        Spacer(modifier = Modifier.height(32.dp))
+
         Text(
             text = stringResource(id = R.string.library),
             style = MaterialTheme.typography.bodySmall,
@@ -127,7 +133,6 @@ fun SignUpContent(
         )
 
         Spacer(modifier = Modifier.height(16.dp))
-
 
         Box(
             modifier = Modifier,
@@ -146,8 +151,6 @@ fun SignUpContent(
                             Log.d("NEWAGE", "button has been clicked")
 
                             authViewModel.signUp(emailState.text, passwordState.text)
-
-                            // Log.d(TAG, "insideViewmodel ")
 
                             if (signInState.value) {
                                 onSignUpSubmitted()
@@ -168,7 +171,6 @@ fun SignUpContent(
                             passwordState.isValid &&
                             confirmPasswordState.isValid
                 ) {
-
                     Text(
                         text = "Create Account",
                         color = Color.Black
@@ -183,6 +185,8 @@ fun SignUpContent(
                     onButtonClicked = onSignUpSubmitted
                 )
             }
+
+
             if (isLoading) {
                 CircularProgressIndicator()
             }

@@ -1,16 +1,23 @@
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ExposedDropdownMenuBox
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.TextButton
+import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -18,12 +25,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -31,6 +41,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.womencare.theme.WomenCareTheme
+import com.example.womencare.ui.auth.signup.nigeriaStates
 import com.example.womencare.ui.auth.state.EmailState
 import com.example.womencare.ui.auth.state.TextFieldState
 
@@ -180,18 +191,87 @@ fun TextButton(
     }
 }
 
-/*
-@Preview
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ForgetPasswordPreview() {
-    MotherCareTheme {
-        Surface {
-            TextButton(modifier = Modifier,
-                onButtonClicked = {},
-                buttonText = "Forgot password?")
+fun CityDropdown() {
+    val cities = listOf("Lagos", "Abuja", "Port Harcourt", "Kano", "Ibadan")
+    var expanded by remember { mutableStateOf(false) }
+    var selectedCity by remember { mutableStateOf(cities[0]) }
+
+    Box(modifier = Modifier.fillMaxWidth()) {
+        ExposedDropdownMenuBox(
+            expanded = expanded,
+            onExpandedChange = { expanded = !expanded }
+        ) {
+            TextField(
+                value = selectedCity,
+                onValueChange = {},
+                readOnly = true,
+            )
+            ExposedDropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                cities.forEach { city ->
+                    DropdownMenuItem(
+                        text = { Text(city) },
+                        onClick = {
+                            selectedCity = city
+                            expanded = false
+                        }
+                    )
+                }
+            }
         }
     }
-}*/
+}
+
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun StateCityDropdown() {
+    var selectedState by remember { mutableStateOf(nigeriaStates[0]) }
+    var expanded by remember { mutableStateOf(false) }
+
+    Column {
+        Text("Select a State", fontWeight = FontWeight.Bold)
+
+        ExposedDropdownMenuBox(
+            expanded = expanded,
+            onExpandedChange = { expanded = !expanded }
+        ) {
+            TextField(
+                value = selectedState.name,
+                onValueChange = {},
+                readOnly = true,
+                //modifier = Modifier.menuAnchor()
+            )
+            ExposedDropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                nigeriaStates.forEach { state ->
+                    DropdownMenuItem(
+                        text = { Text(state.name) },
+                        onClick = {
+                            selectedState = state
+                            expanded = false
+                        }
+                    )
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text("Cities in ${selectedState.name}:", fontWeight = FontWeight.Bold)
+        Column {
+            selectedState.cities.forEach { city ->
+                Text("• $city")
+            }
+        }
+    }
+}
+
 
 
 @Preview()

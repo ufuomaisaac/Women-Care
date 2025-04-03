@@ -1,6 +1,5 @@
 package com.example.womencare.ui.home
 
-import SignInScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -17,14 +16,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.mothercare.ui.scene.auth.signup.SignUpScreen
 import com.example.womencare.theme.WomenCareTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,15 +33,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             WomenCareTheme {
                 Surface {
-                       /* SignInScreen(
-                            onSignInSubmitted = {_, _ -> },
-                            onNavUp = {  },
-                            modifier = Modifier)*/
-
-                    SignUpScreen(
-                        modifier = Modifier,
-                        onSignUpSubmitted = { }) {
-                    }
+                    OnEntryNavigation(context = this)
                 }
             }
         }
