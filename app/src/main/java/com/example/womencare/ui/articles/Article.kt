@@ -34,9 +34,12 @@ import com.example.womencare.R
 
 @Composable
 fun UserProfile(navController: NavController) {
+
+    var articleData = ArticleData(title = "Exercise", description = "Many a time a lot of women fidget about the body transformations that will occur during their pregnancy periods." +
+            " Some even go as far as delaying getting pregnant because of this issue. While this kind of body transformations are inevitable and vary from women to women,you are not meant to" +
+            " be ashamed of them. By doing this, you will feel confident in yourself and have your self-esteem intact.\n" , imageRes = R.drawable.ab3_stretching, postDate = "12/23/3003")
     Column(){
-        SearchBar()
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         Text(text = "Articles",
             modifier = Modifier.padding(horizontal = 16.dp),
             style = MaterialTheme.typography.h5,
@@ -46,12 +49,62 @@ fun UserProfile(navController: NavController) {
         Spacer(modifier = Modifier.height(32.dp))
 
         LazyColumn {
+
             items(1) {
-                ClickableTextAndImage(textId = R.string.first_article_preview, imageId = R.drawable.ab3_stretching ,
-                    onItemClicked = { navController.navigate(route = Articles.FirstArticle.name) }, topic = "Balancing Nutrients")
+                ArticleCard(
+                    article = articleData
+                )
+            }
+
+
+            items(1) {
+                ArticleCard(
+                    article = articleData
+                )
+            }
+
+
+            items(1) {
+                ArticleCard(
+                    article = articleData
+                )
+            }
+
+
+            items(1) {
+                ArticleCard(
+                    article = articleData
+                )
             }
 
             items(1) {
+                ArticleCard(
+                    article = articleData
+                )
+            }
+
+
+            items(1) {
+                ArticleCard(
+                    article = articleData
+                )
+            }
+
+
+            items(1) {
+                ArticleCard(
+                    article = articleData
+                )
+            }
+
+
+            items(1) {
+                ArticleCard(
+                    article = articleData
+                )
+            }
+
+          /*  items(1) {
                 ClickableTextAndImage(textId = R.string.second_article_preview, imageId = R.drawable.ab2_quick_yoga ,
                     onItemClicked = { navController.navigate(route = Articles.SecondArticle.name) }, topic = "Embracing Your Changing Body")
             }
@@ -69,10 +122,9 @@ fun UserProfile(navController: NavController) {
             items(1) {
                 ClickableTextAndImage(textId = R.string.first_article_preview, imageId = R.drawable.ab3_stretching ,
                     onItemClicked = { navController.navigate(route = Articles.FifthArticle.name) }, topic = "Exercise")
-            }
+            }*/
 
         }
-
     }
 }
 

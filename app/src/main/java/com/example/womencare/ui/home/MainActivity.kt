@@ -22,6 +22,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.womencare.R
 import com.example.womencare.theme.WomenCareTheme
 import com.example.womencare.ui.articles.ArticleItem
 import com.example.womencare.ui.articles.Articles
@@ -93,18 +94,12 @@ fun  MainScreen(context: MainActivity) {
 
             composable(MainBottomDestinations.Home.route) {
                 UserProfile(navController)
-
-
             }
 
             composable(MainBottomDestinations.Map.route) {
 
             }
             composable(MainBottomDestinations.Library.route) {
-
-            }
-
-            /*composable(Articles.CheckUpScreen.name) {
 
             }
 
@@ -128,7 +123,7 @@ fun  MainScreen(context: MainActivity) {
             composable(Articles.FifthArticle.name) {
                 ArticleItem(imageIdRes = R.drawable.ab3_stretching, firstTextIdRes = R.string.first_article,
                     topic = "Exercise", navController = navController )
-            }*/
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Map
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.womencare.R
 
@@ -31,7 +32,7 @@ sealed class MainBottomDestinations(
     object Library: MainBottomDestinations(
         route = "library",
         titleRes = R.string.library,
-        icon = Icons.Filled.LocationOn
+        icon = Icons.Filled.Map
     )
 }
 
