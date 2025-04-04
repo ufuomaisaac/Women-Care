@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -67,6 +68,21 @@ fun SignInTopAppBar(
 }
 
 @Composable
+@OptIn(ExperimentalMaterial3Api::class)
+fun SignUpTopAppBar(
+    topAppBarTitle: String,
+    NavUp: () -> Unit
+) {
+    CenterAlignedTopAppBar(
+        title = {
+            Text(text = topAppBarTitle,
+                modifier = Modifier
+            )
+        }
+    )
+}
+
+@Composable
 fun Email(
     emailState: TextFieldState =  remember { EmailState() },
     imeAction: ImeAction = ImeAction.Next,
@@ -102,7 +118,6 @@ fun Email(
         ),
         singleLine = true
     )
-
     emailState.getError()?.let { error -> TextFieldError(textError = error) }
 }
 
@@ -270,6 +285,40 @@ fun StateCityDropdown() {
             }
         }
     }
+}
+
+
+/*@Composable
+fun CityInputField(
+    city: String,
+    onCityChange: (String) -> Unit
+) {
+    TextField(
+        value = city,
+        onValueChange = onCityChange,
+        label = { Text("Enter City") },
+        placeholder = { Text("e.g. New York") },
+        singleLine = true,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+    )
+}*/
+
+@Composable
+fun CityInputField(
+    city: String,
+    onCityChange: (String) -> Unit
+) {
+    OutlinedTextField(
+        value = city,
+        onValueChange = onCityChange,
+        //label = { Text("Enter City") },
+        placeholder = { Text("e.g. New York") },
+        singleLine = true,
+        modifier = Modifier
+            .fillMaxWidth()
+    )
 }
 
 

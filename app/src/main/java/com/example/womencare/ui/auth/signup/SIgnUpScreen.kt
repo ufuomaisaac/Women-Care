@@ -1,9 +1,11 @@
 package com.example.mothercare.ui.scene.auth.signup
 
 import CityDropdown
+import CityInputField
 import Email
 import Password
 import SignInTopAppBar
+import SignUpTopAppBar
 import StateCityDropdown
 import TextButton
 import android.util.Log
@@ -56,7 +58,7 @@ fun SignUpScreen(
 
     Scaffold(
         topBar = {
-            SignInTopAppBar(topAppBarTitle = "Create Account", NavUp = NavUp ) },
+            SignUpTopAppBar(topAppBarTitle = "Create Account", NavUp = NavUp ) },
         content = { paddingValues ->
 
             Spacer(modifier = Modifier.padding(top = 16.dp))
@@ -90,6 +92,7 @@ fun SignUpContent(
     var isLoading by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
     var context = LocalContext.current
+    var city by remember { mutableStateOf("") }
 
 
 
@@ -122,15 +125,15 @@ fun SignUpContent(
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        StateCityDropdown()
+        CityInputField(city = city, onCityChange = { city = it })
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        Text(
+        /*Text(
             text = stringResource(id = R.string.library),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = stronglyDeemphasizedAlpha)
-        )
+        )*/
 
         Spacer(modifier = Modifier.height(16.dp))
 
