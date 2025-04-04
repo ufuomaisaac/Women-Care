@@ -16,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -25,8 +26,10 @@ import androidx.navigation.compose.rememberNavController
 import com.example.womencare.R
 import com.example.womencare.theme.WomenCareTheme
 import com.example.womencare.ui.articles.ArticleItem
+import com.example.womencare.ui.articles.ArticleScreen
 import com.example.womencare.ui.articles.Articles
-import com.example.womencare.ui.articles.UserProfile
+import com.example.womencare.ui.vidoes.VideoPlayerScreen
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -93,10 +96,11 @@ fun  MainScreen(context: MainActivity) {
             modifier = Modifier.padding(padding)) {
 
             composable(MainBottomDestinations.Home.route) {
-                UserProfile(navController)
+                ArticleScreen(navController)
             }
 
             composable(MainBottomDestinations.Map.route) {
+                VideoPlayerScreen()
 
             }
             composable(MainBottomDestinations.Library.route) {

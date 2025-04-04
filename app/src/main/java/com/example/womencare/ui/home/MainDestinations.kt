@@ -32,7 +32,7 @@ sealed class MainBottomDestinations(
     object Library: MainBottomDestinations(
         route = "library",
         titleRes = R.string.library,
-        icon = Icons.Filled.Map
+        icon = Icons.Filled.Book
     )
 }
 

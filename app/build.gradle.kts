@@ -90,4 +90,6 @@ dependencies {
 
     // Android Maps Compose composables for the Maps SDK for Android
     implementation("com.google.maps.android:maps-compose:6.4.1")
+
+    //implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:custom-ui:0.28")
 }
