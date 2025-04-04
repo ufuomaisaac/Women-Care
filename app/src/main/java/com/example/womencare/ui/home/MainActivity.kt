@@ -23,6 +23,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.womencare.theme.WomenCareTheme
+import com.example.womencare.ui.articles.ArticleItem
+import com.example.womencare.ui.articles.Articles
+import com.example.womencare.ui.articles.UserProfile
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -89,6 +92,8 @@ fun  MainScreen(context: MainActivity) {
             modifier = Modifier.padding(padding)) {
 
             composable(MainBottomDestinations.Home.route) {
+                UserProfile(navController)
+
 
             }
 
