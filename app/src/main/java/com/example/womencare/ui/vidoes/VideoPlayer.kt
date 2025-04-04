@@ -30,7 +30,7 @@ fun VideoPlayer(
 
 @Composable
 fun VideoPlayerScreen() {
-    val videoUri = Uri.parse("android.resources://com.example.womencare/raw/video1.mp4")
+    val videoUri = Uri.parse("android.resources://com.example.womencare/raw/video1")
     Column() {
         VideoPlayer(videoUri = videoUri)
     }

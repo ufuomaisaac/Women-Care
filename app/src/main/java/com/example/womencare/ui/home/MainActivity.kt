@@ -29,6 +29,7 @@ import com.example.womencare.ui.articles.ArticleItem
 import com.example.womencare.ui.articles.ArticleScreen
 import com.example.womencare.ui.articles.Articles
 import com.example.womencare.ui.vidoes.VideoPlayerScreen
+import com.example.womencare.ui.vidoes.VideoScreen
 
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -100,7 +101,8 @@ fun  MainScreen(context: MainActivity) {
             }
 
             composable(MainBottomDestinations.Map.route) {
-                VideoPlayerScreen()
+               // VideoPlayerScreen()
+                VideoScreen()
 
             }
             composable(MainBottomDestinations.Library.route) {

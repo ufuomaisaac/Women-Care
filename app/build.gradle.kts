@@ -92,4 +92,8 @@ dependencies {
     implementation("com.google.maps.android:maps-compose:6.4.1")
 
     //implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:custom-ui:0.28")
+
+    implementation ("androidx.media3:media3-exoplayer:1.3.0")
+    implementation ("androidx.media3:media3-ui:1.3.0")
+
 }
