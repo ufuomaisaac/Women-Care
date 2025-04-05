@@ -23,21 +23,22 @@ sealed class MainBottomDestinations(
         icon = Icons.Filled.Home
     )
 
-     object Map: MainBottomDestinations(
-         route = "map",
-         titleRes = R.string.maps,
-         icon = Icons.Filled.LocationOn
-     )
+
 
     object Library: MainBottomDestinations(
         route = "library",
         titleRes = R.string.library,
         icon = Icons.Filled.Book
     )
+    object Map: MainBottomDestinations(
+        route = "map",
+        titleRes = R.string.maps,
+        icon = Icons.Filled.LocationOn
+    )
 }
 
 val BottomDestinationa = listOf(
     MainBottomDestinations.Home,
-    MainBottomDestinations.Map,
+    MainBottomDestinations.Library,
     MainBottomDestinations.Map
 )

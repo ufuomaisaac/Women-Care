@@ -1,9 +1,12 @@
 package com.example.womencare.ui.home
 
+import ScreeningTrackerScreen
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -49,6 +52,7 @@ class MainActivity : ComponentActivity() {
 }
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun  MainScreen(context: MainActivity) {
     var navController: NavHostController = rememberNavController()
@@ -100,12 +104,13 @@ fun  MainScreen(context: MainActivity) {
                 ArticleScreen(navController)
             }
 
-            composable(MainBottomDestinations.Map.route) {
+            composable(MainBottomDestinations.Library.route) {
                // VideoPlayerScreen()
                 VideoScreen()
 
             }
-            composable(MainBottomDestinations.Library.route) {
+            composable(MainBottomDestinations.Map.route) {
+                ScreeningTrackerScreen()
 
             }
 
