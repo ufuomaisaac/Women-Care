@@ -31,6 +31,7 @@ import com.example.womencare.theme.WomenCareTheme
 import com.example.womencare.ui.articles.ArticleItem
 import com.example.womencare.ui.articles.ArticleScreen
 import com.example.womencare.ui.articles.Articles
+import com.example.womencare.ui.articles.CervicalCancerInfoScreen
 import com.example.womencare.ui.vidoes.VideoPlayerScreen
 import com.example.womencare.ui.vidoes.VideoScreen
 
@@ -106,7 +107,8 @@ fun  MainScreen(context: MainActivity) {
 
             composable(MainBottomDestinations.Library.route) {
                // VideoPlayerScreen()
-                VideoScreen()
+               // VideoScreen()
+                CervicalCancerInfoScreen()
 
             }
             composable(MainBottomDestinations.Map.route) {
