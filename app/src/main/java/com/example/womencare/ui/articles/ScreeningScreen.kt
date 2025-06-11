@@ -2,6 +2,7 @@ package com.example.womencare.ui.articles
 
 import android.content.Context
 import android.media.MediaPlayer
+import android.net.Uri
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,6 +39,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.example.womencare.ui.vidoes.VideoPlayer
+import com.example.womencare.ui.vidoes.VideoPlayerScreen
+import com.example.womencare.ui.vidoes.VideoScreen
 
 @Composable
 fun CounselingFlowScreen() {
@@ -218,8 +222,8 @@ fun SectionTitle(title: String) {
 @Composable
 fun PreviewCounselingFlowScreen() {
     MaterialTheme {
-        CounselingFlowScreen()
-        //CervicalCancerInfoScreen()
+        //CounselingFlowScreen()
+        CervicalCancerInfoScreen()
     }
 }
 
@@ -228,6 +232,16 @@ fun PreviewCounselingFlowScreen() {
 @Composable
 fun CervicalCancerInfoScreen() {
     val scrollState = rememberScrollState()
+
+    val context = LocalContext.current
+    val rawId_1 = R.raw.eliminating_cervical_cancer
+    val rawId_2 = R.raw.video1
+    val rawId_3 = R.raw.what_are_the_symptoms_of_cervical_cancer
+
+
+    val uri_1 = Uri.parse("android.resource://${context.packageName}/$rawId_1")
+    val uri_2 = Uri.parse("android.resource://${context.packageName}/$rawId_2")
+    val uri_3 = Uri.parse("android.resource://${context.packageName}/$rawId_3")
 
     Column(
         modifier = Modifier
@@ -293,6 +307,20 @@ fun CervicalCancerInfoScreen() {
                 )
             )
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text(
+            "Health Tips Video",
+            style = MaterialTheme.typography.headlineSmall
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        VideoPlayer(context, uri_1)
+
+        Spacer(modifier = Modifier.height(16.dp))
+        VideoPlayer(context, uri_2)
+
+
     }
 }
 

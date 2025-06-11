@@ -1,5 +1,6 @@
 package com.example.womencare
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -24,7 +25,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.womencare.theme.WomenCareTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 
 /*class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +45,8 @@ class SplashScreen : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     installSplashScreen()
+                    //scheduleScreeningReminder(this@SplashScreen, 365) // 1 year later
+
                 }
             }
         }

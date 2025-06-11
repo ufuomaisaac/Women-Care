@@ -106,8 +106,8 @@ fun  MainScreen(context: MainActivity) {
             }
 
             composable(MainBottomDestinations.Library.route) {
-               // VideoPlayerScreen()
-               // VideoScreen()
+               //VideoPlayerScreen()
+                //VideoScreen()
                 CervicalCancerInfoScreen()
 
             }
