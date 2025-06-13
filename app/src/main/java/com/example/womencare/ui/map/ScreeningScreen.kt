@@ -154,7 +154,7 @@ fun ScreeningTrackerScreen() {
                     iterations = LottieConstants.IterateForever,
                     modifier = Modifier.size(100.dp)
                 )
-                Text("✅ Great job! You had your screening on $selectedDate.", color = Color(0xFF2E7D32))
+                Text("✅ Great job! The data for your screening is on $selectedDate.", color = Color(0xFF2E7D32))
             }
         } else if (isPlanning) {
             Text("📅 Awesome! Don't forget to schedule your screening soon.", color = Color(0xFF00796B))

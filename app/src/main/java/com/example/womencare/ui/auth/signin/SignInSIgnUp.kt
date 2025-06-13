@@ -313,8 +313,7 @@ fun CityInputField(
     OutlinedTextField(
         value = city,
         onValueChange = onCityChange,
-        //label = { Text("Enter City") },
-        placeholder = { Text("e.g. New York") },
+        label = { Text("Enter City") },
         singleLine = true,
         modifier = Modifier
             .fillMaxWidth()

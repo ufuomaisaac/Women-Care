@@ -55,6 +55,8 @@ fun CounselingFlowScreen() {
         .padding(16.dp)
         .verticalScroll(rememberScrollState())) {
 
+        Spacer(Modifier.height(16.dp))
+
         Text("Cervical Health Check", style = MaterialTheme.typography.headlineSmall)
 
         OutlinedTextField(
@@ -149,12 +151,12 @@ fun HPVKnowledgeSection() {
     }
 }
 fun generateRecommendation(
-    age: Int,
+    age: Int ?,
     screenedRecently: Boolean?,
     knowsHPV: Boolean?
 ): String {
     val mainMessage = when {
-        age < 25 -> "You’re currently below the recommended screening age, but your awareness is powerful. Stay informed!"
+        age!! < 25 -> "You’re currently below the recommended screening age, but your awareness is powerful. Stay informed!"
 
         age in 25..49 && screenedRecently == false -> "You're due for a cervical screening. Let's help you schedule one."
 
@@ -307,7 +309,7 @@ fun CervicalCancerInfoScreen() {
                 )
             )
         }
-        SectionTitle("3. How often should I screen?")
+        SectionTitle("\uD83D\uDEE1\uFE0F How often should I screen?")
         BulletPoints(
             listOf(
                 "Ages 25–49: every 3 years.",
@@ -316,7 +318,7 @@ fun CervicalCancerInfoScreen() {
             )
         )
 
-        SectionTitle("4. Where can I go in Osun State?")
+        SectionTitle("\uD83D\uDEE1\uFE0F Where can I go in Osun State?")
         BulletPoints(
             listOf(
                 "UNIOSUN Teaching Hospital, Osogbo",
