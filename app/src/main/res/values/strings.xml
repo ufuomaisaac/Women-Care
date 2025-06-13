@@ -40,4 +40,50 @@
 
     <string name="third_article_preview">Based on the research conducted by American Congress of Obstetricians and Gynecologists (ACOG), between 14-23% of women will struggle with some symptoms of depression during pregnancy. Depression is a frequent health condition that brings about repeated feelings...</string>
     <string name="title_activity_splash">SplashActivity</string>
+    <string name="article_global_overview">
+        <![CDATA[
+🌍 Cervical Cancer: Global Facts & Prevention
+
+Cervical cancer affects over 660,000 women every year and causes nearly 350,000 deaths, mostly in lower-income countries. It’s mainly caused by long-term infection with HPV types 16 and 18.
+
+What helps prevent it?
+• HPV vaccines before sexual activity
+• Regular screenings (Pap smears, HPV tests)
+• Healthy habits like not smoking
+
+With action, we can save lives. Let’s close the gap between rich and poor countries and eliminate cervical cancer globally.
+        ]]>
+    </string>
+
+    <string name="article_warning_signs">
+        <![CDATA[
+🚨 Don’t Miss These Signs
+
+Cervical cancer doesn’t always show symptoms early on, which makes screening so important.
+
+Watch for:
+• Bleeding between periods or after sex
+• Unusual vaginal discharge
+• Pelvic pain or discomfort during sex
+
+Real stories remind us: speak up, get checked, and don’t ignore your gut feeling. Early detection saves lives.
+        ]]>
+    </string>
+
+    <string name="article_innovations">
+       <![CDATA[
+Cervical cancer is the fourth most common cancer in women worldwide, with over 660,000 new cases and nearly 349,000 deaths in 2022. It disproportionately affects low- and middle-income countries—those with a low Human Development Index (HDI) experience twice the incidence and five times the mortality compared to high-HDI countries.
+
+The primary cause is a persistent infection with high-risk HPV types 16 and 18, responsible for approximately 70% of cases. Most HPV infections resolve naturally, but chronic infections can lead to precancerous lesions.
+
+Prevention strategies include:
+• HPV vaccination (e.g., Gardasil 9 or Cervarix) before sexual debut to dramatically reduce risk
+• Screening methods such as Pap smears, high-risk HPV testing, and visual inspection (especially in low-resource settings)
+• Maintaining safe sexual practices, not smoking, and adopting a healthy lifestyle
+
+Without intervention, the global burden of cervical cancer is projected to rise to approximately 760,000 new cases and 411,000 deaths by 2030.
+        ]]>
+    </string>
+
+
 </resources>

@@ -111,7 +111,7 @@ fun  MainScreen(context: MainActivity) {
             composable(MainBottomDestinations.Library.route) {
                //VideoPlayerScreen()
                 //VideoScreen()
-                CervicalCancerInfoScreen()
+                CervicalCancerInfoScreen(navController = navController)
 
             }
             composable(MainBottomDestinations.Map.route) {
@@ -120,26 +120,15 @@ fun  MainScreen(context: MainActivity) {
             }
 
             composable(Articles.FirstArticle.name) {
-                ArticleItem(imageIdRes = R.drawable.ab3_stretching, firstTextIdRes = R.string.first_article,
+                ArticleItem(imageIdRes = R.drawable.ab3_stretching, firstTextIdRes = R.string.article_warning_signs,
                     topic = "Balancing Nutrients", navController = navController )
             }
             composable(Articles.SecondArticle.name) {
-                ArticleItem(imageIdRes = R.drawable.ab2_quick_yoga, firstTextIdRes = R.string.second_article,
+                ArticleItem(imageIdRes = R.drawable.ab2_quick_yoga, firstTextIdRes = R.string.article_innovations,
                     topic = "Embracing Your Changing Body", navController = navController )
 
             }
-            composable(Articles.ThirdArticle.name) {
-                ArticleItem(imageIdRes = R.drawable.ab6_pre_natal_yoga, firstTextIdRes = R.string.third_article,
-                    topic = "Overcoming Pregnancy Depression", navController = navController )
-            }
-            composable(Articles.FourthArticle.name) {
-                ArticleItem(imageIdRes = R.drawable.ab3_stretching, firstTextIdRes = R.string.first_article,
-                    topic = "Exercise", navController = navController )
-            }
-            composable(Articles.FifthArticle.name) {
-                ArticleItem(imageIdRes = R.drawable.ab3_stretching, firstTextIdRes = R.string.first_article,
-                    topic = "Exercise", navController = navController )
-            }
+
         }
     }
 }

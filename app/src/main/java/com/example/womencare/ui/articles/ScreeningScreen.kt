@@ -4,6 +4,7 @@ import android.content.Context
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
@@ -39,6 +41,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.womencare.ui.vidoes.VideoPlayer
 import com.example.womencare.ui.vidoes.VideoPlayerScreen
 import com.example.womencare.ui.vidoes.VideoScreen
@@ -232,7 +235,7 @@ fun PreviewCounselingFlowScreen() {
 
 
 @Composable
-fun CervicalCancerInfoScreen() {
+fun CervicalCancerInfoScreen(navController: NavController) {
     val scrollState = rememberScrollState()
 
     val context = LocalContext.current
@@ -244,6 +247,22 @@ fun CervicalCancerInfoScreen() {
     val uri_1 = Uri.parse("android.resource://${context.packageName}/$rawId_1")
     val uri_2 = Uri.parse("android.resource://${context.packageName}/$rawId_2")
     val uri_3 = Uri.parse("android.resource://${context.packageName}/$rawId_3")
+
+    val articles = listOf(
+        ArticleData(
+            title = "🚨 Early Signs & Screening:",
+            description = "What Every Woman Should Know",
+            imageRes = R.drawable.ab3_stretching,
+            postDate = "23/12/2021"
+        ),
+        ArticleData(
+            title = "Burden & Prevention",
+            description = "Global Overview of Cervical Cancer",
+            imageRes = R.drawable.ab6_pre_natal_yoga,
+            postDate = "23/12/2021"
+        ),
+
+    )
 
     Column(
         modifier = Modifier
@@ -330,18 +349,33 @@ fun CervicalCancerInfoScreen() {
         )
 
         Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            "Health Tips Articles",
+            style = MaterialTheme.typography.headlineSmall
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        ArticleCard(
+            article = articles[0], onItemClicked = { navController.navigate(route = Articles.FirstArticle.name) }
+        )
 
+        Spacer(modifier = Modifier.height(8.dp))
+        ArticleCard(
+            article = articles[1], onItemClicked = { navController.navigate(route = Articles.FirstArticle.name) }
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
         Text(
             "Health Tips Video",
             style = MaterialTheme.typography.headlineSmall
         )
+        Spacer(modifier = Modifier.height(8.dp))
+
         Spacer(modifier = Modifier.height(16.dp))
         VideoPlayer(context, uri_1)
+        Spacer(modifier = Modifier.height(8.dp))
 
         Spacer(modifier = Modifier.height(16.dp))
         VideoPlayer(context, uri_2)
-
-
     }
 }
 
