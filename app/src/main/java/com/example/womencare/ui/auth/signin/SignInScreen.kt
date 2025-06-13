@@ -171,31 +171,6 @@ fun SignInContent(
                     )
                 }
 
-                /*when (uiState) {
-                    AuthUiState.Initial-> {
-
-                    }
-                    AuthUiState.Loading -> {
-                        Box(
-                            contentAlignment = Alignment.Center,
-                            modifier = Modifier
-                                .padding(all = 8.dp)
-                                .align(Alignment.CenterHorizontally)
-                        ) {
-                            CircularProgressIndicator()
-                        }
-                    }
-
-                    is AuthUiState.Error -> {
-                        Toast.makeText(context, (uiState as AuthUiState.Error).errorMessage, Toast.LENGTH_SHORT ).show()
-
-                        }
-
-                    AuthUiState.Success ->  {
-                        onSignInSubmitted
-                    }
-
-                }*/
             }
         }
     }

@@ -114,7 +114,7 @@ fun ScreeningTrackerScreen() {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Checkbox(checked = hasGone, onCheckedChange = { hasGone = it })
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text("I have gone for a screening", fontWeight = FontWeight.Medium)
+                    Text("Select a date", fontWeight = FontWeight.Medium)
                 }
 
                 if (hasGone) {

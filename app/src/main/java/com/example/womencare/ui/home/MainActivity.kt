@@ -32,6 +32,7 @@ import com.example.womencare.ui.articles.ArticleItem
 import com.example.womencare.ui.articles.ArticleScreen
 import com.example.womencare.ui.articles.Articles
 import com.example.womencare.ui.articles.CervicalCancerInfoScreen
+import com.example.womencare.ui.articles.CounselingFlowScreen
 import com.example.womencare.ui.vidoes.VideoPlayerScreen
 import com.example.womencare.ui.vidoes.VideoScreen
 
@@ -63,7 +64,7 @@ fun  MainScreen(context: MainActivity) {
     Scaffold(
         bottomBar = {
             BottomNavigation(
-                backgroundColor = Color.DarkGray
+                backgroundColor = Color.LightGray
             ) {
                 BottomDestinationa.forEach { destination ->
                     BottomNavigationItem(
@@ -71,10 +72,10 @@ fun  MainScreen(context: MainActivity) {
                         icon = {
                             Icon(imageVector = destination.icon, contentDescription = "")
                         },
-                        alwaysShowLabel = false,
+                        //alwaysShowLabel = false,
                         label = {
-                            Text(text = stringResource(destination.titleRes),
-                                color = Color.White)
+                            Text(text = stringResource(destination.titleRes))
+                                //color = Color.White)
                         },
 
                         onClick = {
@@ -102,7 +103,9 @@ fun  MainScreen(context: MainActivity) {
             modifier = Modifier.padding(padding)) {
 
             composable(MainBottomDestinations.Home.route) {
-                ArticleScreen(navController)
+                //ArticleScreen(navController)
+                CounselingFlowScreen()
+
             }
 
             composable(MainBottomDestinations.Library.route) {

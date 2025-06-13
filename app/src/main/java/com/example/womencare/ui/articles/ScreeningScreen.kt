@@ -222,8 +222,8 @@ fun SectionTitle(title: String) {
 @Composable
 fun PreviewCounselingFlowScreen() {
     MaterialTheme {
-        //CounselingFlowScreen()
-        CervicalCancerInfoScreen()
+        CounselingFlowScreen()
+        //CervicalCancerInfoScreen()
     }
 }
 
@@ -307,6 +307,25 @@ fun CervicalCancerInfoScreen() {
                 )
             )
         }
+        SectionTitle("3. How often should I screen?")
+        BulletPoints(
+            listOf(
+                "Ages 25–49: every 3 years.",
+                "Ages 50–64: every 5 years if previous results were normal.",
+                "In Nigeria: once a year is often recommended."
+            )
+        )
+
+        SectionTitle("4. Where can I go in Osun State?")
+        BulletPoints(
+            listOf(
+                "UNIOSUN Teaching Hospital, Osogbo",
+                "State Specialist Hospital, Osogbo",
+                "Fountain University Health Centre",
+                "Iremide Medical Centre Annex",
+                "FOMWAN Secretariat, Ogo-Oluwa"
+            )
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 

@@ -48,11 +48,11 @@ private val LightColorScheme = lightColorScheme(
     onPrimary = md_theme_light_onPrimary,
     primaryContainer = md_theme_light_primaryContainer,
     onPrimaryContainer = md_theme_light_onPrimaryContainer,
-    secondary = md_theme_light_secondary,
+    //secondary = md_theme_light_secondary,
     onSecondary = md_theme_light_onSecondary,
-    secondaryContainer = md_theme_light_secondaryContainer,
-    onSecondaryContainer = md_theme_light_onSecondaryContainer,
-    tertiary = md_theme_light_tertiary,
+    //secondaryContainer = md_theme_light_secondaryContainer,
+    //onSecondaryContainer = md_theme_light_onSecondaryContainer,
+    //tertiary = md_theme_light_tertiary,
     onTertiary = md_theme_light_onTertiary,
     tertiaryContainer = md_theme_light_tertiaryContainer,
     onTertiaryContainer = md_theme_light_onTertiaryContainer,
@@ -61,13 +61,13 @@ private val LightColorScheme = lightColorScheme(
     errorContainer = md_theme_light_errorContainer,
     onErrorContainer = md_theme_light_onErrorContainer,
     background = md_theme_light_background,
-    onBackground = md_theme_light_onBackground,
+    //onBackground = md_theme_light_onBackground,
     surface = md_theme_light_surface,
-    onSurface = md_theme_light_onSurface,
+    //onSurface = md_theme_light_onSurface,
     surfaceVariant = md_theme_light_surfaceVariant,
-    onSurfaceVariant = md_theme_light_onSurfaceVariant,
+    //onSurfaceVariant = md_theme_light_onSurfaceVariant,
     outline = md_theme_light_outline,
-    inverseSurface = md_theme_light_inverseSurface,
+   // inverseSurface = md_theme_light_inverseSurface,
     inverseOnSurface = md_theme_light_inverseOnSurface,
     inversePrimary = md_theme_light_inversePrimary,
     surfaceTint = md_theme_light_surfaceTint,
@@ -85,7 +85,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun WomenCareTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = false,
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
@@ -110,7 +110,7 @@ fun WomenCareTheme(
 
 @Composable
 fun MotherCareTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = false,
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
