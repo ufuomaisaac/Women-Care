@@ -42,7 +42,6 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.womencare.theme.WomenCareTheme
-import com.example.womencare.ui.auth.signup.nigeriaStates
 import com.example.womencare.ui.auth.state.EmailState
 import com.example.womencare.ui.auth.state.TextFieldState
 
@@ -206,105 +205,6 @@ fun TextButton(
     }
 }
 
-@OptIn(ExperimentalMaterialApi::class)
-@Composable
-fun CityDropdown() {
-    val cities = listOf("Lagos", "Abuja", "Port Harcourt", "Kano", "Ibadan")
-    var expanded by remember { mutableStateOf(false) }
-    var selectedCity by remember { mutableStateOf(cities[0]) }
-
-    Box(modifier = Modifier.fillMaxWidth()) {
-        ExposedDropdownMenuBox(
-            expanded = expanded,
-            onExpandedChange = { expanded = !expanded }
-        ) {
-            TextField(
-                value = selectedCity,
-                onValueChange = {},
-                readOnly = true,
-            )
-            ExposedDropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false }
-            ) {
-                cities.forEach { city ->
-                    DropdownMenuItem(
-                        text = { Text(city) },
-                        onClick = {
-                            selectedCity = city
-                            expanded = false
-                        }
-                    )
-                }
-            }
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterialApi::class)
-@Composable
-fun StateCityDropdown() {
-    var selectedState by remember { mutableStateOf(nigeriaStates[0]) }
-    var expanded by remember { mutableStateOf(false) }
-
-    Column {
-        Text("Select a State", fontWeight = FontWeight.Bold)
-
-        ExposedDropdownMenuBox(
-            expanded = expanded,
-            onExpandedChange = { expanded = !expanded }
-        ) {
-            TextField(
-                value = selectedState.name,
-                onValueChange = {},
-                readOnly = true,
-                //modifier = Modifier.menuAnchor()
-            )
-            ExposedDropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false }
-            ) {
-                nigeriaStates.forEach { state ->
-                    DropdownMenuItem(
-                        text = { Text(state.name) },
-                        onClick = {
-                            selectedState = state
-                            expanded = false
-                        }
-                    )
-                }
-            }
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text("Cities in ${selectedState.name}:", fontWeight = FontWeight.Bold)
-        Column {
-            selectedState.cities.forEach { city ->
-                Text("• $city")
-            }
-        }
-    }
-}
-
-
-/*@Composable
-fun CityInputField(
-    city: String,
-    onCityChange: (String) -> Unit
-) {
-    TextField(
-        value = city,
-        onValueChange = onCityChange,
-        label = { Text("Enter City") },
-        placeholder = { Text("e.g. New York") },
-        singleLine = true,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-    )
-}*/
-
 @Composable
 fun CityInputField(
     city: String,
@@ -319,8 +219,6 @@ fun CityInputField(
             .fillMaxWidth()
     )
 }
-
-
 
 @Preview()
 @Composable

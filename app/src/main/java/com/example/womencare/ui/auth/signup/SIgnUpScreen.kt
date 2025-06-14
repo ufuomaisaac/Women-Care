@@ -1,12 +1,9 @@
 package com.example.mothercare.ui.scene.auth.signup
 
-import CityDropdown
 import CityInputField
 import Email
 import Password
-import SignInTopAppBar
 import SignUpTopAppBar
-import StateCityDropdown
 import TextButton
 import android.util.Log
 import android.widget.Toast
@@ -20,7 +17,6 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -35,14 +31,10 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.womencare.R
 import com.example.womencare.theme.WomenCareTheme
-import com.example.womencare.theme.stronglyDeemphasizedAlpha
 import com.example.womencare.ui.auth.state.ConfirmPasswordState
 import com.example.womencare.ui.auth.state.EmailState
 import com.example.womencare.ui.auth.state.PasswordState
@@ -128,12 +120,6 @@ fun SignUpContent(
         CityInputField(city = city, onCityChange = { city = it })
 
         Spacer(modifier = Modifier.height(32.dp))
-
-        /*Text(
-            text = stringResource(id = R.string.library),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurface.copy(alpha = stronglyDeemphasizedAlpha)
-        )*/
 
         Spacer(modifier = Modifier.height(16.dp))
 

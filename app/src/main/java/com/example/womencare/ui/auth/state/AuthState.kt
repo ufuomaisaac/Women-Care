@@ -6,7 +6,6 @@ data class AuthState(
 )
 
 sealed class AuthUiState {
-
     /**
      * Empty state when the screen is first shown
      */
@@ -28,5 +27,4 @@ sealed class AuthUiState {
     data class Error(
         val errorMessage: String
     ): AuthUiState()
-
 }

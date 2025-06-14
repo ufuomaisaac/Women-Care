@@ -1,4 +1,4 @@
-package com.example.womencare.ui.articles
+package com.example.womencare.ui.library
 
 import SignInTopAppBar
 import androidx.annotation.DrawableRes
@@ -6,7 +6,6 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -18,16 +17,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Crop
-import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.SegmentedButtonDefaults.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,56 +35,42 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
+@Composable
+fun ArticleCard(article: ArticleData, onItemClicked : () -> Unit ) {
+    Card(
+        shape = RoundedCornerShape(12.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onItemClicked)
+    ) {
+        Row(
+            modifier = Modifier.padding(12.dp),
+            verticalAlignment = Alignment.Top
+        ) {
+            Image(
+                painter = painterResource(id = article.imageRes),
+                contentDescription = "Article Image",
+                modifier = Modifier
+                    .size(80.dp)
+                    .clip(RoundedCornerShape(8.dp)),
+                contentScale = ContentScale.Crop
+            )
 
-/*@Composable
-fun ArticleItem(modifier: Modifier = Modifier, @DrawableRes imageIdRes: Int,
-                @StringRes firstTextIdRes: Int, topic: String, navController: NavController){
-    Column() {
-        SignInTopAppBar(topAppBarTitle = topic, NavUp = {navController.popBackStack()})
-        LazyColumn() {
+            Spacer(modifier = Modifier.width(12.dp))
 
-            item {
-                Image(
-                    painter = painterResource(id = imageIdRes),
-                    contentDescription = "Artical image",
-                    modifier = Modifier.fillMaxWidth()
-                )
+            Column(modifier = Modifier.weight(1f)) {
+                Text(text = article.title, fontWeight = FontWeight.Bold, maxLines = 2)
+                Text(text = article.description, style = androidx.compose.material3.MaterialTheme.typography.bodySmall, maxLines = 2)
 
-                Text(
-                    text = topic,
-                    modifier.padding(16.dp),
-                    fontSize = 24.sp,
-                    //textAlign = TextAlign.Justify
-                )
-                *//*
-                            Text(
-                                text = stringResource(id = R.string.first_text),
-                                modifier.padding(16.dp),
-                                textAlign = TextAlign.Justify
-                            )
-                *//*
+                Spacer(modifier = Modifier.height(8.dp))
 
-                Text(
-                    text = stringResource(id = firstTextIdRes),
-                    modifier.padding(16.dp),
-                    textAlign = TextAlign.Justify
-                )
-
-                Spacer(modifier = Modifier.height(64.dp))
-
-                Text(text = "yacohchuk/Getty Images",
-                    color = Color.Black,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(32.dp)
-                        .background(Color.LightGray))
-
-                Spacer(modifier = Modifier.height(64.dp))
+                    Text(text = "Posted: ${article.postDate}", style = androidx.compose.material3.MaterialTheme.typography.bodySmall)
             }
         }
-
     }
-}*/
+}
+
 
 @Composable
 fun ArticleItem(
@@ -110,10 +89,10 @@ fun ArticleItem(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
+                .background(androidx.compose.material3.MaterialTheme.colorScheme.background)
         ) {
             item {
-                // Article Image
+
                 Image(
                     painter = painterResource(id = imageIdRes),
                     contentDescription = "Article Image",
@@ -125,26 +104,23 @@ fun ArticleItem(
                     contentScale = ContentScale.Crop
                 )
 
-                // Topic Title
                 Text(
                     text = topic,
                     modifier = Modifier.padding(horizontal = 16.dp),
-                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+                    style = androidx.compose.material3.MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Body Text
                 Text(
                     text = stringResource(id = firstTextIdRes),
                     modifier = Modifier.padding(horizontal = 16.dp),
-                    style = MaterialTheme.typography.bodyLarge.copy(lineHeight = 24.sp),
+                    style = androidx.compose.material3.MaterialTheme.typography.bodyLarge.copy(lineHeight = 24.sp),
                     textAlign = TextAlign.Justify
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                // Image Credit Footer
                 Surface(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -154,7 +130,7 @@ fun ArticleItem(
                 ) {
                     Text(
                         text = "yacohchuk/Getty Images",
-                        style = MaterialTheme.typography.labelSmall.copy(color = Color.Black),
+                        style = androidx.compose.material3.MaterialTheme.typography.labelSmall.copy(color = Color.Black),
                         modifier = Modifier
                             .padding(8.dp)
                             .align(Alignment.CenterHorizontally)
@@ -169,5 +145,15 @@ fun ArticleItem(
 
 
 
+
+
+
+
+data class ArticleData(
+    val title: String,
+    val description: String,
+    val imageRes: Int,  // Store image as a resource ID
+    val postDate: String
+)
 
 

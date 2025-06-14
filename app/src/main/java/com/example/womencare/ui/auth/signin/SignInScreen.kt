@@ -37,7 +37,6 @@ import kotlinx.coroutines.launch
 fun SignInScreen(
     email: String = "",
     onSignInSubmitted: (email: String, password: String) -> Unit,
-    onForgotPasswordClicked: () -> Unit = {},
     onNavUp: () -> Unit,
     modifier: Modifier
 ) {
@@ -99,10 +98,6 @@ fun SignInContent(
 
         var authViewModel: AuthViewModel = hiltViewModel()
         var state = authViewModel.signInState.collectAsState()
-
-        val uiState by authViewModel.uiState.collectAsState()
-
-
 
         Email(emailState)
         Spacer(modifier = Modifier.height(16.dp))

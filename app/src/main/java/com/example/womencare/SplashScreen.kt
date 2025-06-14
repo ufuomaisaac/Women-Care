@@ -26,12 +26,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.womencare.theme.WomenCareTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-/*class SplashScreen : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-}*/
-
 
 @AndroidEntryPoint
 class SplashScreen : ComponentActivity() {
@@ -45,8 +39,6 @@ class SplashScreen : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     installSplashScreen()
-                    //scheduleScreeningReminder(this@SplashScreen, 365) // 1 year later
-
                 }
             }
         }

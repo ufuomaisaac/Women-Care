@@ -19,7 +19,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -28,13 +27,10 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.womencare.R
 import com.example.womencare.theme.WomenCareTheme
-import com.example.womencare.ui.articles.ArticleItem
-import com.example.womencare.ui.articles.ArticleScreen
-import com.example.womencare.ui.articles.Articles
-import com.example.womencare.ui.articles.CervicalCancerInfoScreen
-import com.example.womencare.ui.articles.CounselingFlowScreen
-import com.example.womencare.ui.vidoes.VideoPlayerScreen
-import com.example.womencare.ui.vidoes.VideoScreen
+import com.example.womencare.ui.library.ArticleItem
+import com.example.womencare.ui.library.Articles
+import com.example.womencare.ui.library.CervicalCancerInfoScreen
+import com.example.womencare.ui.library.CounselingFlowScreen
 
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -103,14 +99,11 @@ fun  MainScreen(context: MainActivity) {
             modifier = Modifier.padding(padding)) {
 
             composable(MainBottomDestinations.Home.route) {
-                //ArticleScreen(navController)
                 CounselingFlowScreen()
 
             }
 
             composable(MainBottomDestinations.Library.route) {
-               //VideoPlayerScreen()
-                //VideoScreen()
                 CervicalCancerInfoScreen(navController = navController)
 
             }
