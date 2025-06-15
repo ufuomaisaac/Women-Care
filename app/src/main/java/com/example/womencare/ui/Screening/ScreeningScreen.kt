@@ -2,6 +2,7 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -106,13 +107,18 @@ fun ScreeningTrackerScreen() {
 
         // Gone Card with Date Picker
         Card(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth()
+                .clickable{
+                hasGone = true
+            },
+
             colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9)),
             elevation = CardDefaults.cardElevation(4.dp)
         ) {
-            Column(modifier = Modifier.padding(16.dp)) {
+            Column(
+                modifier = Modifier.padding(16.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Checkbox(checked = hasGone, onCheckedChange = { hasGone = it })
+                   // Checkbox(checked = hasGone, onCheckedChange = { hasGone = it })
                     Spacer(modifier = Modifier.width(8.dp))
                     Text("Select a date", fontWeight = FontWeight.Medium)
                 }
@@ -154,7 +160,7 @@ fun ScreeningTrackerScreen() {
                     iterations = LottieConstants.IterateForever,
                     modifier = Modifier.size(100.dp)
                 )
-                Text("✅ Great job! The data for your screening is on $selectedDate.", color = Color(0xFF2E7D32))
+                Text("✅ Great job! The date for your screening is on $selectedDate.", color = Color(0xFF2E7D32))
             }
         } else if (isPlanning) {
             Text("📅 Awesome! Don't forget to schedule your screening soon.", color = Color(0xFF00796B))

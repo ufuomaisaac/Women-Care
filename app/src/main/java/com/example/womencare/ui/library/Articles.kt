@@ -6,6 +6,4 @@ enum class Articles {
     FirstArticle,
     SecondArticle,
     ThirdArticle,
-
-
 }
