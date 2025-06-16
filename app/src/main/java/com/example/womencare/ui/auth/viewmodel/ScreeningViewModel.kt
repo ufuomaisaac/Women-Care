@@ -1,3 +1,4 @@
+package com.example.womencare.ui.auth.viewmodel/*
 package com.example.womencare.ui.auth.viewmodel
 
 import androidx.lifecycle.ViewModel
@@ -17,7 +18,9 @@ class ScreeningViewModel : ViewModel() {
     private var _selectedDate = MutableStateFlow<String>("")
     val selectedDate: String get() = _selectedDate.toString()
 
-    /*// Update functions
+    */
+/*//*
+/ Update functions
     fun setIsPlanning(value: Boolean) {
         _isPlanning = value
     }
@@ -28,5 +31,8 @@ class ScreeningViewModel : ViewModel() {
 
     fun setSelectedDate(value: String) {
         _selectedDate = value
-    }*/
+    }*//*
+
 }
+
+/**/
