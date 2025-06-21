@@ -208,8 +208,6 @@ fun SectionTitle(title: String) {
 }
 
 
-
-
 @Preview(showBackground = true)
 @Composable
 fun PreviewCounselingFlowScreen() {
@@ -219,8 +217,6 @@ fun PreviewCounselingFlowScreen() {
     }
 }
 
-
-
 @Composable
 fun CervicalCancerInfoScreen(navController: NavController) {
     val scrollState = rememberScrollState()
@@ -228,12 +224,10 @@ fun CervicalCancerInfoScreen(navController: NavController) {
     val context = LocalContext.current
     val rawId_1 = R.raw.eliminating_cervical_cancer
     val rawId_2 = R.raw.video1
-    //val rawId_3 = R.raw.what_are_the_symptoms_of_cervical_cancer
 
 
     val uri_1 = Uri.parse("android.resource://${context.packageName}/$rawId_1")
     val uri_2 = Uri.parse("android.resource://${context.packageName}/$rawId_2")
-    //val uri_3 = Uri.parse("android.resource://${context.packageName}/$rawId_3")
 
     val articles = listOf(
         ArticleData(
