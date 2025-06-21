@@ -42,17 +42,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.womencare.R
+import com.example.womencare.ui.screening.ScreeningViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun ScreeningTrackerScreen() {
+fun ScreeningTrackerScreen(viewModel: ScreeningViewModel = hiltViewModel()) {
     var isPlanning by remember { mutableStateOf(false) }
     var hasGone by remember { mutableStateOf(false) }
     var selectedDate by remember { mutableStateOf("") }
@@ -66,7 +68,8 @@ fun ScreeningTrackerScreen() {
         DatePickerDialog(
             context,
             { _, year, month, dayOfMonth ->
-                selectedDate = "$dayOfMonth/${month + 1}/$year"
+                 val selectedDate = "$dayOfMonth/${month + 1}/$year"
+                viewModel.getUserSelectedDate(selectedDate)
             },
             LocalDate.now().year,
             LocalDate.now().monthValue - 1,
