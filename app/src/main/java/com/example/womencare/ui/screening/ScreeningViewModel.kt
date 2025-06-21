@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,11 +17,14 @@ class ScreeningViewModel @Inject constructor(): ViewModel() {
     val hasGone: StateFlow<Boolean> get() = _hasGone
 
     private var _selectedDate = MutableStateFlow<String>("")
-    val selectedDate: StateFlow<String> get() = _selectedDate
+    val selectedDate = _selectedDate.asStateFlow()
 
 
     fun getUserSelectedDate(selectedDate : String) {
         _selectedDate.value = selectedDate
+    }
 
+    fun setSelectedDate(selectedDate: String) {
+        _selectedDate.value = selectedDate
     }
 }

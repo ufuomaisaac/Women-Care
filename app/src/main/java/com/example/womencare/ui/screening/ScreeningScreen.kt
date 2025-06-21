@@ -52,11 +52,12 @@ import com.example.womencare.ui.screening.ScreeningViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
+@SuppressLint("StateFlowValueCalledInComposition")
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun ScreeningTrackerScreen(viewModel: ScreeningViewModel = hiltViewModel()) {
     var isPlanning by remember { mutableStateOf(false) }
-    var hasGone by remember { mutableStateOf(false) }
+    //var hasGone by remember { mutableStateOf(false) }
     var selectedDate by remember { mutableStateOf("") }
     val context = LocalContext.current
 
@@ -68,8 +69,8 @@ fun ScreeningTrackerScreen(viewModel: ScreeningViewModel = hiltViewModel()) {
         DatePickerDialog(
             context,
             { _, year, month, dayOfMonth ->
-                 val selectedDate = "$dayOfMonth/${month + 1}/$year"
-                viewModel.getUserSelectedDate(selectedDate)
+                selectedDate = "$dayOfMonth/${month + 1}/$year"
+                //viewModel.setSelectedDate(selectedDate)
             },
             LocalDate.now().year,
             LocalDate.now().monthValue - 1,
@@ -112,7 +113,7 @@ fun ScreeningTrackerScreen(viewModel: ScreeningViewModel = hiltViewModel()) {
         Card(
             modifier = Modifier.fillMaxWidth()
                 .clickable{
-                hasGone = true
+                isPlanning = true
             },
 
             colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9)),
@@ -126,7 +127,7 @@ fun ScreeningTrackerScreen(viewModel: ScreeningViewModel = hiltViewModel()) {
                     Text("Select a date", fontWeight = FontWeight.Medium)
                 }
 
-                if (hasGone) {
+               // if (isPlanning) {
                     Spacer(modifier = Modifier.height(12.dp))
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(Icons.Default.CalendarToday, contentDescription = null)
@@ -139,7 +140,7 @@ fun ScreeningTrackerScreen(viewModel: ScreeningViewModel = hiltViewModel()) {
                         ) {
                             Text("Pick Date")
                         }
-                    }
+                    //}
                 }
             }
         }
@@ -156,7 +157,7 @@ fun ScreeningTrackerScreen(viewModel: ScreeningViewModel = hiltViewModel()) {
         }
 
         // Status Message with Lottie Animation
-        if (hasGone && selectedDate.isNotEmpty()) {
+        if ( selectedDate.isNotEmpty()) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 LottieAnimation(
                     composition = composition,
