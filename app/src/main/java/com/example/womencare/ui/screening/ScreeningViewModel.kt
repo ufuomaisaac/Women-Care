@@ -19,7 +19,6 @@ class ScreeningViewModel @Inject constructor(): ViewModel() {
     private var _selectedDate = MutableStateFlow<String>("")
     val selectedDate = _selectedDate.asStateFlow()
 
-
     fun getUserSelectedDate(selectedDate : String) {
         _selectedDate.value = selectedDate
     }

@@ -104,5 +104,8 @@ dependencies {
     implementation ("androidx.work:work-runtime-ktx:2.9.0")
     implementation ("androidx.core:core-ktx:1.12.0")
 
+    //FirebaseUi
+    implementation ("com.firebaseui:firebase-ui-auth:9.0.0")
+
 
 }

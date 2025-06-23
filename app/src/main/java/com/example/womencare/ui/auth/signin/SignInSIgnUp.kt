@@ -1,24 +1,25 @@
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ExposedDropdownMenuBox
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.TextButton
-import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -26,11 +27,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
@@ -118,6 +118,59 @@ fun Email(
         singleLine = true
     )
     emailState.getError()?.let { error -> TextFieldError(textError = error) }
+}
+
+@Composable
+fun PhoneNumberInputScreen(
+    phoneNumber: String,
+    onPhoneNumberChange: (String) -> Unit,
+    onSendCodeClick: () -> Unit,
+    isSending: Boolean = false
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(24.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        //Text("Enter your phone number", style = MaterialTheme.typography.titleLarge)
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        OutlinedTextField(
+            value = phoneNumber,
+            onValueChange = onPhoneNumberChange,
+            label = { Text("Phone Number") },
+            placeholder = { Text("+2348123456789") },
+            keyboardOptions = KeyboardOptions.Default.copy(
+                keyboardType = KeyboardType.Phone
+            ),
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Button(
+            onClick = onSendCodeClick,
+            enabled = !isSending,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            if (isSending) {
+                CircularProgressIndicator(
+                    color = Color.White,
+                    modifier = Modifier
+                        .size(20.dp)
+                        .padding(end = 8.dp),
+                    strokeWidth = 2.dp
+                )
+                Text("Sending...")
+            } else {
+                Text("Send Verification Code")
+            }
+        }
+    }
 }
 
 
@@ -225,7 +278,13 @@ fun CityInputField(
 fun SignUpContentPreview() {
     WomenCareTheme {
         Surface {
-            SignInScreen(onSignInSubmitted = {_, _ -> }, onNavUp = {  }, modifier = Modifier)
+            PhoneNumberInputScreen(
+                phoneNumber = "12347",
+                onPhoneNumberChange = {},
+                onSendCodeClick = {},
+                isSending = TODO()
+            )
+            //SignInScreen(onSignInSubmitted = {_, _ -> }, onNavUp = {  }, modifier = Modifier)
         }
     }
 }
