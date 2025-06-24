@@ -106,6 +106,4 @@ dependencies {
 
     //FirebaseUi
     implementation ("com.firebaseui:firebase-ui-auth:9.0.0")
-
-
 }

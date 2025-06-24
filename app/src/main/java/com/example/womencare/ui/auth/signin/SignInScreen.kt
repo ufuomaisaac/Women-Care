@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.womencare.ui.auth.signin.PhoneAuthScreen
 import com.example.womencare.ui.auth.state.EmailState
 import com.example.womencare.ui.auth.state.EmailStateSaver
 import com.example.womencare.ui.auth.state.PasswordState
@@ -68,6 +69,8 @@ fun SignInScreen(
                     modifier = Modifier,
                     buttonText = "Forgot password?",
                     onButtonClicked = {})
+
+                PhoneAuthScreen()
             }
             Spacer(modifier = Modifier.height(32.dp))
         }
