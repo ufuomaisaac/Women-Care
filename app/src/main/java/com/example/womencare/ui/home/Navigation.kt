@@ -34,12 +34,12 @@ fun OnEntryNavigation(
     ) {
 
         composable(route = SIGN_UP_ROUTE) {
-           /* SignUpScreen(
+           SignUpScreen(
                 modifier = Modifier,
                 onSignUpSubmitted = {navController.navigate(route = SIGN_IN_ROUTE)},
                 NavUp = { }
-            )*/
-            PhoneAuthScreen(context)
+            )
+            //PhoneAuthScreen(context)
         }
 
         composable(route = SIGN_IN_ROUTE) {
