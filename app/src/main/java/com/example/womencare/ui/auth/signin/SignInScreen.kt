@@ -70,7 +70,6 @@ fun SignInScreen(
                     buttonText = "Forgot password?",
                     onButtonClicked = {})
 
-                PhoneAuthScreen()
             }
             Spacer(modifier = Modifier.height(32.dp))
         }
