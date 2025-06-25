@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.example.womencare.ui.auth.signin.PhoneAuthScreen
 import com.example.womencare.ui.auth.state.EmailState
 import com.example.womencare.ui.auth.state.EmailStateSaver
@@ -37,6 +38,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun SignInScreen(
+    navController: NavController,
     email: String = "",
     onSignInSubmitted: (email: String, password: String) -> Unit,
     onNavUp: () -> Unit,
@@ -70,7 +72,7 @@ fun SignInScreen(
                     buttonText = "Forgot password?",
                     onButtonClicked = {})
 
-                PhoneAuthScreen()
+                PhoneAuthScreen(navController = navController)
             }
             Spacer(modifier = Modifier.height(32.dp))
         }
