@@ -13,6 +13,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.RadioButton
+import androidx.compose.material.Switch
 import androidx.compose.material.Text
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -35,160 +36,150 @@ import androidx.navigation.NavController
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun CounselingFlowScreen(
-) {
+fun CounselingFlowScreen() {
+    var isYoruba by remember { mutableStateOf(false) }
     var age by remember { mutableStateOf("") }
     var screenedRecently by remember { mutableStateOf<Boolean?>(null) }
     var knowsHPV by remember { mutableStateOf<Boolean?>(null) }
     var result by remember { mutableStateOf("") }
 
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .padding(16.dp)
-        .verticalScroll(rememberScrollState())) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState())
+    ) {
+        // Language Toggle
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text("English")
+            Switch(
+                checked = isYoruba,
+                onCheckedChange = { isYoruba = it }
+            )
+            Text("Yorùbá")
+        }
 
-        Text(
-            text = "Welcome, dear woman of strength!",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.primary
-        )
-        //Module 1
-        Text(
-            text = """
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // 🔹 MODULE 1: Welcome
+        SectionHeader(if (isYoruba) "Ẹ ku ìbàlẹ̀, obìnrin alágbára!" else "Welcome, dear woman of strength!")
+        Paragraph(
+            if (isYoruba) """
+                Ìlera rẹ̀ ni ọrọ̀ rẹ. A wà lẹ́gbẹ̀ẹ́ rẹ.
+                Ṣé o mọ̀ pé àrùn ìgbẹ́yà jẹ́ ọ̀kan lára àwọn àrùn tí a lè dáwọ̀ dúró?
+                Ìdánwò kíákíá lè mú kó rọrùn láti rí ayipada ṣáájú kí o tó burú.
+                Kò pé, kò nira, ó sì lè gba ìyànjú.
+            """.trimIndent()
+            else """
                 Your health is your wealth, and we're here to walk with you.
-                
                 Do you know that cervical cancer is one of the few cancers that can actually be prevented?
-
                 Screening helps us catch early changes before they become dangerous.
-
                 It’s quick, safe, and can save your life.
-            """.trimIndent(),
-            style = MaterialTheme.typography.bodyLarge,
-            lineHeight = 24.sp
+            """.trimIndent()
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
-        //Module 2
-        Text(
-            text = "Understanding the Screening Process",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.primary
-        )
-
-        Text(
-            text = """
+        // 🔹 MODULE 2: Screening Process
+        SectionHeader(if (isYoruba) "Ìmọ̀ nípa Ìdánwò Ìgbẹ́yà" else "Understanding the Screening Process")
+        Paragraph(
+            if (isYoruba) """
+                Ọ̀pọ̀ obìnrin ni ń bẹ̀rù ìdánwò yìí. Ṣùgbọ́n, ìwọ kò wà ní kànkan!
+                ✔️ Ó gba iṣẹju díẹ̀ péré (10–15).
+                ✔️ Kò ní bàjẹ́ fún ìbálòpọ̀ tàbí èròjà obìnrin rẹ.
+                ✔️ Kò yọ ìrẹsì nù.
+                ✔️ Ó lè rí àfihàn àkókò ṣáájú kí àìlera tó hàn gbangba.
+                Bíràkù rẹ̀ mọ́ kó jẹ́ bi ṣíṣe ayẹwo ọkọ ayọ́kẹ́lẹ́ rẹ.
+            """.trimIndent()
+            else """
                 Many women are scared or unsure about cervical screening. You are not alone!
-                
-                Let’s break it down:
                 ✔️ Screening takes just 10–15 minutes.
                 ✔️ It is usually painless or mildly uncomfortable.
                 ✔️ It does not take your virginity or affect fertility.
                 ✔️ It can detect early signs long before symptoms appear.
-
-                Think of it like a car check-up — it's better to detect a fault early, before the engine breaks down.
-            """.trimIndent(),
-            style = MaterialTheme.typography.bodyLarge,
-            lineHeight = 24.sp
+                Think of it like a car check-up — it's better to detect a fault early.
+            """.trimIndent()
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
-
-        //Module 3
-        Text(
-            text = "Overcoming Myths & Barriers",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.primary
-        )
-
+        // 🔹 MODULE 3: Myths & Barriers
+        SectionHeader(if (isYoruba) "Ṣíṣe kúrò nínú àwọn èrò àìtó" else "Overcoming Myths & Barriers")
         MythAndTruth(
-            myth = "❌ “I don’t have symptoms, so I’m fine.”",
-            truth = "✅ Truth: Cervical cancer doesn’t show signs until it’s advanced. Early screening is key."
+            myth = if (isYoruba) "❌ “Mi ò ní ààmì, bẹ́ẹ̀ni mo wà láradá.”"
+            else "❌ “I don’t have symptoms, so I’m fine.”",
+            truth = if (isYoruba) "✅ Otitọ ni pé àrùn ìgbẹ́yà máa ń dàgbà lọ́nà tí kò fi hàn gbangba. Ìdánwò ní kókó ni."
+            else "✅ Truth: Cervical cancer doesn’t show signs until it’s advanced. Early screening is key."
         )
-
         MythAndTruth(
-            myth = "❌ “It’s shameful or painful.”",
-            truth = "✅ Truth: It is done respectfully by trained female staff and takes a few minutes."
+            myth = if (isYoruba) "❌ “Ó jẹ́ ẹ̀tàn tàbí kó bà mí lórí.”"
+            else "❌ “It’s shameful or painful.”",
+            truth = if (isYoruba) "✅ Ó ń ṣẹlẹ̀ ní àìmọ̀nà, pẹ̀lú àwọn alágbàse obìnrin. Ó gba iṣẹ́jú díẹ̀ péré."
+            else "✅ Truth: It is done respectfully by trained female staff and takes a few minutes."
         )
-
         MythAndTruth(
-            myth = "❌ “I’m afraid of the results.”",
-            truth = "✅ Truth: Early detection gives you a higher chance to be treated and live well."
+            myth = if (isYoruba) "❌ “Mo bẹ̀rù abajade rẹ̀.”"
+            else "❌ “I’m afraid of the results.”",
+            truth = if (isYoruba) "✅ Ìfihàn àkókò dá òye ẹ̀mí padà — ó lè gba ẹ̀tọ́ ìtọ́jú."
+            else "✅ Truth: Early detection gives you a higher chance to be treated and live well."
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text(
-            text = "Remember, being informed is not fearful — it’s powerful.",
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.secondary,
-            fontWeight = FontWeight.SemiBold
+        Paragraph(
+            if (isYoruba) "Rí i dájú pé ìmọ̀ yìí jẹ́ agbára — kì í ṣe ohun ẹ̀rù."
+            else "Remember, being informed is not fearful — it’s powerful."
         )
 
-        Text(
-            text = "Motivational Call to Action",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.primary
-        )
-
-        Text(
-            text = """
+        // 🔹 MODULE 4: Motivational Call
+        SectionHeader(if (isYoruba) "Ìpè àtìmọ̀ràn pẹ̀lú ìtara" else "Motivational Call to Action")
+        Paragraph(
+            if (isYoruba) """
+                Tí o bá ti dé bí bẹ́ẹ̀, ó túmọ̀ sí pé o ṣe pàtàkì.
+                Ìwọ jẹ́ ìyá, arábìnrin, aya, olórí — ilera rẹ jẹ́ gbígbà lórí fún ẹbí rẹ.
+                Má bà a lọ́! Ẹ jẹ́ ká forúkọsílẹ̀ fún ìdánwò rẹ lónìí.
+                MomaCare wà pẹ̀lú rẹ. Ìdánwò kékeré le jẹ́ ìkànsí àlàáfíà àná.
+            """.trimIndent()
+            else """
                 You’ve come this far — and that means you care. Now is the time to act.
-
                 You are a mother, a sister, a wife, a leader — and your family needs you healthy.
-
                 Don’t wait until it’s too late.
-
                 Let’s book your screening today. You’re not alone — MomaCare is with you.
-
                 A small test now can give you peace of mind later.
-            """.trimIndent(),
-            style = MaterialTheme.typography.bodyLarge,
-            lineHeight = 24.sp
+            """.trimIndent()
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Text("Cervical Health Check",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.primary)
+        // 🔹 FORM: Cervical Health Check
+        SectionHeader(if (isYoruba) "Ìdánwò Ìlera Ìgbẹ́yà" else "Cervical Health Check")
 
         OutlinedTextField(
             value = age,
             onValueChange = { age = it },
-            label = { Text("What is your age?") },
+            label = {
+                Text(if (isYoruba) "Ìgbọ̀nwọ̀ ọjọ́ ori rẹ?" else "What is your age?")
+            },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             modifier = Modifier.fillMaxWidth()
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
-
-        Spacer(Modifier.height(8.dp))
-
-        Text("Have you had a cervical screening before?")
+        Text(if (isYoruba) "Ṣé o ti ṣe ìdánwò ṣáájú?" else "Have you had a cervical screening before?")
         Row {
-            RadioButtonWithLabel("Yes", screenedRecently == true) { screenedRecently = true }
-            RadioButtonWithLabel("No", screenedRecently == false) { screenedRecently = false }
+            RadioButtonWithLabel(if (isYoruba) "Bẹ́ẹ̀ni" else "Yes", screenedRecently == true) { screenedRecently = true }
+            RadioButtonWithLabel(if (isYoruba) "Rárá" else "No", screenedRecently == false) { screenedRecently = false }
         }
 
-        Spacer(Modifier.height(8.dp))
-
-        Text("Do you know what HPV is?")
+        Text(if (isYoruba) "Ṣé o mọ̀ ohun tí HPV jẹ́?" else "Do you know what HPV is?")
         Row {
-            RadioButtonWithLabel("Yes", knowsHPV == true) { knowsHPV = true }
-            RadioButtonWithLabel("No", knowsHPV == false) { knowsHPV = false }
+            RadioButtonWithLabel(if (isYoruba) "Bẹ́ẹ̀ni" else "Yes", knowsHPV == true) { knowsHPV = true }
+            RadioButtonWithLabel(if (isYoruba) "Rárá" else "No", knowsHPV == false) { knowsHPV = false }
         }
 
-        Spacer(Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         Button(onClick = {
             val ageNum = age.toIntOrNull() ?: return@Button
             result = generateRecommendation(ageNum, screenedRecently, knowsHPV)
         }) {
-            Text("Get Recommendation")
+            Text(if (isYoruba) "Gba ìmọ̀ràn" else "Get Recommendation")
         }
 
-        Spacer(Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         if (result.isNotBlank()) {
             Text(result, style = MaterialTheme.typography.bodyLarge)
@@ -196,29 +187,63 @@ fun CounselingFlowScreen(
 
         if (knowsHPV == false) {
             Spacer(modifier = Modifier.height(16.dp))
-            HPVKnowledgeSection()
+            HPVKnowledgeSection(isYoruba)
         }
 
-        Spacer(Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(24.dp))
     }
+}
+
+@Composable
+fun SectionHeader(text: String) {
+    Text(text, style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.primary)
+}
+
+@Composable
+fun Paragraph(text: String) {
+    Text(text, style = MaterialTheme.typography.bodyLarge, lineHeight = 24.sp)
 }
 
 @Composable
 fun MythAndTruth(myth: String, truth: String) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp)
+    Column(modifier = Modifier.padding(vertical = 8.dp)) {
+        Text(myth, color = Color.Red, style = MaterialTheme.typography.bodyMedium)
+        Spacer(Modifier.height(4.dp))
+        Text(truth, color = Color(0xFF2E7D32), style = MaterialTheme.typography.bodyLarge)
+    }
+}
+
+@Composable
+fun RadioButtonWithLabel(label: String, selected: Boolean, onClick: () -> Unit) {
+    Row(
+        Modifier
+            .padding(end = 16.dp)
+            .clickable(onClick = onClick),
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(text = myth, style = MaterialTheme.typography.bodyMedium, color = Color.Red)
-        Spacer(modifier = Modifier.height(4.dp))
-        Text(text = truth, style = MaterialTheme.typography.bodyLarge, color = Color(0xFF2E7D32)) // greenish tone
+        RadioButton(selected = selected, onClick = null)
+        Text(label)
     }
 }
 
 
+/*
 @Composable
-fun HPVKnowledgeSection() {
+fun HPVKnowledgeSection(isYoruba: Boolean) {
+    Text(
+        text = if (isYoruba)
+            "HPV túmọ̀ sí 'Human Papillomavirus' — àrùn to ń tan lórí ibi ìbálòpọ̀, tó lè fà áyàjẹ́."
+        else
+            "HPV stands for Human Papillomavirus — a common virus that can lead to cervical changes.",
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.secondary
+    )
+}*/
+
+/*
+
+@Composable
+fun HPVKnowledgeSection(isYoruba: Boolean) {
     Column {
         SectionTitle("🧬 What is HPV?")
         BulletPoints(
@@ -260,6 +285,83 @@ fun HPVKnowledgeSection() {
         )
     }
 }
+*/
+
+@Composable
+fun HPVKnowledgeSection(isYoruba: Boolean) {
+    Column {
+        SectionTitle(if (isYoruba) "🧬 Kí ni HPV?" else "🧬 What is HPV?")
+        BulletPoints(
+            if (isYoruba)
+                listOf(
+                    "HPV (Human Papillomavirus) jẹ́ àrùn tí ó wọ́pọ̀ gan-an.",
+                    "Ó ń tan nípasẹ̀ ìfarahan awọ sí awọ, bó ti wù kí ó jẹ́ ìbálòpọ̀.",
+                    "Ọ̀pọ̀ ènìyàn ni ń ní í lẹ́ẹ̀kan; ó máa ń lọ nítorí ara."
+                )
+            else
+                listOf(
+                    "HPV (Human Papillomavirus) is very common.",
+                    "Spreads through skin-to-skin contact, often during sex.",
+                    "Most people get it at some point—usually clears on its own."
+                )
+        )
+
+        SectionTitle(if (isYoruba) "❗ Kí ló ṣe pàtàkì nípa HPV?" else "❗ Why is HPV important?")
+        BulletPoints(
+            if (isYoruba)
+                listOf(
+                    "Diẹ̀ lára rẹ̀ le fa àrùn ìgbẹ́yà.",
+                    "HPV onírúurú 16 àti 18 ni wọ́n jẹ́ kókó nínú ọ̀pọ̀ àrùn.",
+                    "Ó tún ní ìbáṣepọ̀ pẹ̀lú àwọn àrùn àkúnya míì àti wàárìtì."
+                )
+            else
+                listOf(
+                    "Some types can cause cervical cancer.",
+                    "High-risk types (16 and 18) cause most cases.",
+                    "Also linked to other cancers and genital warts."
+                )
+        )
+
+        SectionTitle(if (isYoruba) "🎯 Àwọn nǹkan tó le pọ̀ si ewu àrùn ìgbẹ́yà" else "🎯 Risk Factors for Cervical Cancer")
+        BulletPoints(
+            if (isYoruba)
+                listOf(
+                    "Ìbálòpọ̀ pẹ̀lú ọ̀pọ̀ alábàápàdé.",
+                    "Bibẹrẹ ìbálòpọ̀ ní kékeré.",
+                    "Ìtọ́jú àìlera (bí HIV).",
+                    "Mímu tàbí sísun.",
+                    "Kíkù àyẹ̀wò ìlera déédé.",
+                    "Àì gba abẹ̀rẹ̀ HPV."
+                )
+            else
+                listOf(
+                    "Multiple sexual partners.",
+                    "Early sexual activity.",
+                    "Weakened immune system (e.g., HIV).",
+                    "Smoking.",
+                    "Skipping regular screenings.",
+                    "Not getting the HPV vaccine."
+                )
+        )
+
+        SectionTitle(if (isYoruba) "💉 Abẹ̀rẹ̀ HPV" else "💉 HPV Vaccine")
+        BulletPoints(
+            if (isYoruba)
+                listOf(
+                    "Ó dáàbò bo oríṣìíríṣìí HPV tí ó lewu jùlọ.",
+                    "Ó dájú láti gba ṣáájú ìbálòpọ̀, ṣùgbọ́n àgbàlagbà tún le rí àǹfààní.",
+                    "Ó dájú àti pé ó munadoko."
+                )
+            else
+                listOf(
+                    "Protects against the most dangerous HPV types.",
+                    "Best before sexual activity, but adults can benefit too.",
+                    "Safe and effective."
+                )
+        )
+    }
+}
+
 fun generateRecommendation(
     age: Int ?,
     screenedRecently: Boolean?,
@@ -290,30 +392,6 @@ fun generateRecommendation(
     }
 
     return mainMessage + hpvMessage
-}
-
-
-@Composable
-fun RadioButtonWithLabel(
-    label: String,
-    selected: Boolean,
-    onClick: () -> Unit
-) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .padding(end = 16.dp)
-            .clickable { onClick() }
-    ) {
-        RadioButton(
-            selected = selected,
-            onClick = null
-        )
-        Text(
-            text = label,
-            modifier = Modifier.padding(start = 4.dp)
-        )
-    }
 }
 
 @Composable
