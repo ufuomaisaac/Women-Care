@@ -2,4 +2,11 @@
 <resources>
 
     <style name="Theme.WomenCare" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="CustomFirebaseUITheme" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize colors, buttons, inputs, etc -->
+        <item name="colorPrimary">#5ECC62</item>
+        <item name="colorAccent">#03DAC5</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+    </style>
 </resources>
