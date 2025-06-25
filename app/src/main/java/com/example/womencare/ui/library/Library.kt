@@ -58,7 +58,6 @@ fun CounselingFlowScreen() {
             )
             Text("Yorùbá")
         }
-
         Spacer(modifier = Modifier.height(16.dp))
 
         // 🔹 MODULE 1: Welcome
@@ -71,18 +70,21 @@ fun CounselingFlowScreen() {
                 Kò pé, kò nira, ó sì lè gba ìyànjú.
             """.trimIndent()
             else """
-                Your health is your wealth, and we're here to walk with you.
+                
+                Your health is your wealth, and we're here to walk with you.      
                 Do you know that cervical cancer is one of the few cancers that can actually be prevented?
-                Screening helps us catch early changes before they become dangerous.
+                Screening helps us catch early changes before they become dangerous
                 It’s quick, safe, and can save your life.
             """.trimIndent()
         )
+        Spacer(modifier = Modifier.height(16.dp))
 
         // 🔹 MODULE 2: Screening Process
         SectionHeader(if (isYoruba) "Ìmọ̀ nípa Ìdánwò Ìgbẹ́yà" else "Understanding the Screening Process")
         Paragraph(
             if (isYoruba) """
                 Ọ̀pọ̀ obìnrin ni ń bẹ̀rù ìdánwò yìí. Ṣùgbọ́n, ìwọ kò wà ní kànkan!
+                
                 ✔️ Ó gba iṣẹju díẹ̀ péré (10–15).
                 ✔️ Kò ní bàjẹ́ fún ìbálòpọ̀ tàbí èròjà obìnrin rẹ.
                 ✔️ Kò yọ ìrẹsì nù.
@@ -91,6 +93,7 @@ fun CounselingFlowScreen() {
             """.trimIndent()
             else """
                 Many women are scared or unsure about cervical screening. You are not alone!
+                
                 ✔️ Screening takes just 10–15 minutes.
                 ✔️ It is usually painless or mildly uncomfortable.
                 ✔️ It does not take your virginity or affect fertility.
@@ -98,6 +101,7 @@ fun CounselingFlowScreen() {
                 Think of it like a car check-up — it's better to detect a fault early.
             """.trimIndent()
         )
+        Spacer(modifier = Modifier.height(16.dp))
 
         // 🔹 MODULE 3: Myths & Barriers
         SectionHeader(if (isYoruba) "Ṣíṣe kúrò nínú àwọn èrò àìtó" else "Overcoming Myths & Barriers")
@@ -124,17 +128,19 @@ fun CounselingFlowScreen() {
             if (isYoruba) "Rí i dájú pé ìmọ̀ yìí jẹ́ agbára — kì í ṣe ohun ẹ̀rù."
             else "Remember, being informed is not fearful — it’s powerful."
         )
-
+        Spacer(modifier = Modifier.height(16.dp))
         // 🔹 MODULE 4: Motivational Call
         SectionHeader(if (isYoruba) "Ìpè àtìmọ̀ràn pẹ̀lú ìtara" else "Motivational Call to Action")
         Paragraph(
             if (isYoruba) """
+                
                 Tí o bá ti dé bí bẹ́ẹ̀, ó túmọ̀ sí pé o ṣe pàtàkì.
                 Ìwọ jẹ́ ìyá, arábìnrin, aya, olórí — ilera rẹ jẹ́ gbígbà lórí fún ẹbí rẹ.
                 Má bà a lọ́! Ẹ jẹ́ ká forúkọsílẹ̀ fún ìdánwò rẹ lónìí.
                 MomaCare wà pẹ̀lú rẹ. Ìdánwò kékeré le jẹ́ ìkànsí àlàáfíà àná.
             """.trimIndent()
             else """
+                
                 You’ve come this far — and that means you care. Now is the time to act.
                 You are a mother, a sister, a wife, a leader — and your family needs you healthy.
                 Don’t wait until it’s too late.
@@ -174,7 +180,10 @@ fun CounselingFlowScreen() {
 
         Button(onClick = {
             val ageNum = age.toIntOrNull() ?: return@Button
-            result = generateRecommendation(ageNum, screenedRecently, knowsHPV)
+            result = generateRecommendation(
+                ageNum, screenedRecently, knowsHPV,
+                isYoruba = isYoruba
+            )
         }) {
             Text(if (isYoruba) "Gba ìmọ̀ràn" else "Get Recommendation")
         }
@@ -227,65 +236,6 @@ fun RadioButtonWithLabel(label: String, selected: Boolean, onClick: () -> Unit) 
 }
 
 
-/*
-@Composable
-fun HPVKnowledgeSection(isYoruba: Boolean) {
-    Text(
-        text = if (isYoruba)
-            "HPV túmọ̀ sí 'Human Papillomavirus' — àrùn to ń tan lórí ibi ìbálòpọ̀, tó lè fà áyàjẹ́."
-        else
-            "HPV stands for Human Papillomavirus — a common virus that can lead to cervical changes.",
-        style = MaterialTheme.typography.bodyMedium,
-        color = MaterialTheme.colorScheme.secondary
-    )
-}*/
-
-/*
-
-@Composable
-fun HPVKnowledgeSection(isYoruba: Boolean) {
-    Column {
-        SectionTitle("🧬 What is HPV?")
-        BulletPoints(
-            listOf(
-                "HPV (Human Papillomavirus) is very common.",
-                "Spreads through skin-to-skin contact, often during sex.",
-                "Most people get it at some point—usually clears on its own."
-            )
-        )
-
-        SectionTitle("❗ Why is HPV important?")
-        BulletPoints(
-            listOf(
-                "Some types can cause cervical cancer.",
-                "High-risk types (16 and 18) cause most cases.",
-                "Also linked to other cancers and genital warts."
-            )
-        )
-
-        SectionTitle("🎯 Risk Factors for Cervical Cancer")
-        BulletPoints(
-            listOf(
-                "Multiple sexual partners.",
-                "Early sexual activity.",
-                "Weakened immune system (e.g., HIV).",
-                "Smoking.",
-                "Skipping regular screenings.",
-                "Not getting the HPV vaccine."
-            )
-        )
-
-        SectionTitle("💉 HPV Vaccine")
-        BulletPoints(
-            listOf(
-                "Protects against the most dangerous HPV types.",
-                "Best before sexual activity, but adults can benefit too.",
-                "Safe and effective."
-            )
-        )
-    }
-}
-*/
 
 @Composable
 fun HPVKnowledgeSection(isYoruba: Boolean) {
@@ -361,38 +311,66 @@ fun HPVKnowledgeSection(isYoruba: Boolean) {
         )
     }
 }
-
 fun generateRecommendation(
-    age: Int ?,
+    age: Int?,
     screenedRecently: Boolean?,
-    knowsHPV: Boolean?
+    knowsHPV: Boolean?,
+    isYoruba: Boolean
 ): String {
+    if (age == null) return ""
+
     val mainMessage = when {
-        age!! < 25 -> "You’re currently below the recommended screening age, but your awareness is powerful. Stay informed!"
+        age < 25 -> if (isYoruba)
+            "O wa ní kéré ju ọjọ́-ori àyẹ̀wò lọ. Ṣùgbọ́n ìmọ̀ rẹ jẹ́ agbára. Mà ṣe dáwọ̀ kọ́!"
+        else
+            "You’re currently below the recommended screening age, but your awareness is powerful. Stay informed!"
 
-        age in 25..49 && screenedRecently == false -> "You're due for a cervical screening. Let's help you schedule one."
+        age in 25..49 && screenedRecently == false -> if (isYoruba)
+            "Ó tọ́ ọ́ kí o ṣe àyẹ̀wò ìgbẹ́yà. Ẹ jẹ́ ká ṣe ìpinnu pẹ̀lú rẹ báyìí."
+        else
+            "You're due for a cervical screening. Let's help you schedule one."
 
-        age in 25..49 && screenedRecently == true -> "You've had a screening recently—great job! Keep it up and stay informed."
+        age in 25..49 && screenedRecently == true -> if (isYoruba)
+            "Ó dára pé o ti ṣe àyẹ̀wò laipẹ—ẹ̀ ṣeun! Màa bá a lọ ní títẹ̀síwájú."
+        else
+            "You've had a screening recently—great job! Keep it up and stay informed."
 
-        age in 50..64 && screenedRecently == false -> "It's time to start cervical screening. We'll guide you through the next steps."
+        age in 50..64 && screenedRecently == false -> if (isYoruba)
+            "Òun ni àkókò tó yẹ kó o bẹ̀rẹ̀ àyẹ̀wò. A wà pẹ̀lú rẹ láti fi ràn é lọ́wọ́."
+        else
+            "It's time to start cervical screening. We'll guide you through the next steps."
 
-        age in 50..64 && screenedRecently == true -> "You're doing a wonderful job taking care of your health!"
+        age in 50..64 && screenedRecently == true -> if (isYoruba)
+            "O ń ṣe iṣẹ́ rere nínú títọ́jú ara rẹ. Ẹ̀ ku iṣẹ́!"
+        else
+            "You're doing a wonderful job taking care of your health!"
 
-        age >= 65 && screenedRecently == true -> "Fantastic! You're staying proactive about your health."
+        age >= 65 && screenedRecently == true -> if (isYoruba)
+            "Káàbọ̀! O ń gbìyànjú láti tọ́jú ilera rẹ. Ẹ̀ kú iṣẹ́."
+        else
+            "Fantastic! You're staying proactive about your health."
 
-        age >= 65 && screenedRecently == false -> "Please speak with a healthcare provider about whether you still need screening."
+        age >= 65 && screenedRecently == false -> if (isYoruba)
+            "Jọ̀ọ́ bá onímọ̀ ìlera sọ̀rọ̀ nípa bóyá ìdánwò ṣi yẹ fún ọ."
+        else
+            "Please speak with a healthcare provider about whether you still need screening."
 
-        else -> "Thank you for being here. You're taking a great step for your health."
+        else -> if (isYoruba)
+            "Ẹ ṣé gan-an fún àbẹ̀wò yìí. O ti gbé ìgbésẹ̀ rere fún ilera rẹ."
+        else
+            "Thank you for being here. You're taking a great step for your health."
     }
 
     val hpvMessage = if (knowsHPV == false) {
-        "\n\n🔍 By the way, HPV (Human Papillomavirus) is the main cause of cervical cancer. Most people get it without knowing. Learning more can help protect your health!"
-    } else {
-        ""
-    }
+        if (isYoruba)
+            "\n\n🔍 Bẹ́ẹ̀ ni, HPV (Human Papillomavirus) ni ìdí pàtàkì jùlọ tí ó ń fa àrùn ìgbẹ́yà. Ọ̀pọ̀ ènìyàn ló ní í láì mọ̀. Ìmọ̀ yìí lè dáàbò bo ilera rẹ."
+        else
+            "\n\n🔍 By the way, HPV (Human Papillomavirus) is the main cause of cervical cancer. Most people get it without knowing. Learning more can help protect your health!"
+    } else ""
 
     return mainMessage + hpvMessage
 }
+
 
 @Composable
 fun SectionTitle(title: String) {
@@ -411,7 +389,6 @@ fun SectionTitle(title: String) {
 fun PreviewCounselingFlowScreen() {
     MaterialTheme {
         CounselingFlowScreen()
-        //CervicalCancerInfoScreen()
     }
 }
 
