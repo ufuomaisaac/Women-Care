@@ -32,6 +32,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun CounselingFlowScreen(
@@ -51,7 +52,7 @@ fun CounselingFlowScreen(
             style = MaterialTheme.typography.headlineSmall,
             color = MaterialTheme.colorScheme.primary
         )
-
+        //Module 1
         Text(
             text = """
                 Your health is your wealth, and we're here to walk with you.
@@ -67,9 +68,89 @@ fun CounselingFlowScreen(
         )
 
         Spacer(modifier = Modifier.height(24.dp))
+        //Module 2
+        Text(
+            text = "Understanding the Screening Process",
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.primary
+        )
 
+        Text(
+            text = """
+                Many women are scared or unsure about cervical screening. You are not alone!
+                
+                Let’s break it down:
+                ✔️ Screening takes just 10–15 minutes.
+                ✔️ It is usually painless or mildly uncomfortable.
+                ✔️ It does not take your virginity or affect fertility.
+                ✔️ It can detect early signs long before symptoms appear.
 
-        Text("Cervical Health Check", style = MaterialTheme.typography.headlineSmall)
+                Think of it like a car check-up — it's better to detect a fault early, before the engine breaks down.
+            """.trimIndent(),
+            style = MaterialTheme.typography.bodyLarge,
+            lineHeight = 24.sp
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        //Module 3
+        Text(
+            text = "Overcoming Myths & Barriers",
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.primary
+        )
+
+        MythAndTruth(
+            myth = "❌ “I don’t have symptoms, so I’m fine.”",
+            truth = "✅ Truth: Cervical cancer doesn’t show signs until it’s advanced. Early screening is key."
+        )
+
+        MythAndTruth(
+            myth = "❌ “It’s shameful or painful.”",
+            truth = "✅ Truth: It is done respectfully by trained female staff and takes a few minutes."
+        )
+
+        MythAndTruth(
+            myth = "❌ “I’m afraid of the results.”",
+            truth = "✅ Truth: Early detection gives you a higher chance to be treated and live well."
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text(
+            text = "Remember, being informed is not fearful — it’s powerful.",
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.secondary,
+            fontWeight = FontWeight.SemiBold
+        )
+
+        Text(
+            text = "Motivational Call to Action",
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.primary
+        )
+
+        Text(
+            text = """
+                You’ve come this far — and that means you care. Now is the time to act.
+
+                You are a mother, a sister, a wife, a leader — and your family needs you healthy.
+
+                Don’t wait until it’s too late.
+
+                Let’s book your screening today. You’re not alone — MomaCare is with you.
+
+                A small test now can give you peace of mind later.
+            """.trimIndent(),
+            style = MaterialTheme.typography.bodyLarge,
+            lineHeight = 24.sp
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Text("Cervical Health Check",
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.primary)
 
         OutlinedTextField(
             value = age,
@@ -78,6 +159,9 @@ fun CounselingFlowScreen(
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             modifier = Modifier.fillMaxWidth()
         )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
 
         Spacer(Modifier.height(8.dp))
 
@@ -118,6 +202,20 @@ fun CounselingFlowScreen(
         Spacer(Modifier.height(16.dp))
     }
 }
+
+@Composable
+fun MythAndTruth(myth: String, truth: String) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp)
+    ) {
+        Text(text = myth, style = MaterialTheme.typography.bodyMedium, color = Color.Red)
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(text = truth, style = MaterialTheme.typography.bodyLarge, color = Color(0xFF2E7D32)) // greenish tone
+    }
+}
+
 
 @Composable
 fun HPVKnowledgeSection() {
