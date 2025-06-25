@@ -34,7 +34,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @Composable
-fun CounselingFlowScreen() {
+fun CounselingFlowScreen(
+) {
     var age by remember { mutableStateOf("") }
     var screenedRecently by remember { mutableStateOf<Boolean?>(null) }
     var knowsHPV by remember { mutableStateOf<Boolean?>(null) }
@@ -45,7 +46,28 @@ fun CounselingFlowScreen() {
         .padding(16.dp)
         .verticalScroll(rememberScrollState())) {
 
-        Spacer(Modifier.height(16.dp))
+        Text(
+            text = "Welcome, dear woman of strength!",
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.primary
+        )
+
+        Text(
+            text = """
+                Your health is your wealth, and we're here to walk with you.
+                
+                Do you know that cervical cancer is one of the few cancers that can actually be prevented?
+
+                Screening helps us catch early changes before they become dangerous.
+
+                It’s quick, safe, and can save your life.
+            """.trimIndent(),
+            style = MaterialTheme.typography.bodyLarge,
+            lineHeight = 24.sp
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
 
         Text("Cervical Health Check", style = MaterialTheme.typography.headlineSmall)
 
