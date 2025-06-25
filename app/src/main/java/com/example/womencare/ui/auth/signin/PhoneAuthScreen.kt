@@ -23,6 +23,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import androidx.compose.runtime.*
 import androidx.compose.material3.*
 import androidx.compose.ui.unit.dp
+import com.example.womencare.R
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
@@ -62,6 +63,7 @@ fun getPhoneAuthIntent(): Intent {
     return AuthUI.getInstance()
         .createSignInIntentBuilder()
         .setAvailableProviders(providers)
+        .setTheme(R.style.CustomFirebaseUITheme)
         .build()
 }
 
