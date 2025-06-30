@@ -9,4 +9,14 @@
         <item name="colorAccent">#03DAC5</item>
         <item name="android:textColorPrimary">#FFFFFF</item>
     </style>
+
+    <style name="FirebaseUIDarkTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize as needed -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/black</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/black</item>
+    </style>
 </resources>
