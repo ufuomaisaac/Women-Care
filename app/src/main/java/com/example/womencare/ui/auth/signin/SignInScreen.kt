@@ -62,17 +62,17 @@ fun SignInScreen(
 
                     ) {
                     Spacer(modifier = Modifier.height(16.dp))
-                    SignInContent(
+                    /*SignInContent(
                         email = email,
                         onSignInSubmitted = onSignInSubmitted
-                    )
+                    )*/
                 }
-                TextButton(
+               /* TextButton(
                     modifier = Modifier,
                     buttonText = "Forgot password?",
-                    onButtonClicked = {})
+                    onButtonClicked = {})*/
 
-                PhoneAuthScreen(navController = navController)
+                PhoneAuthScreen(navController = navController, modifier = Modifier.fillMaxWidth())
             }
             Spacer(modifier = Modifier.height(32.dp))
         }

@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit
 
 
 @Composable
-fun PhoneAuthScreen(navController: NavController) {
+fun PhoneAuthScreen(navController: NavController, modifier: Modifier) {
     val context = LocalContext.current
 
     val launcher = rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -51,11 +51,12 @@ fun PhoneAuthScreen(navController: NavController) {
         }
     }
 
-    Button(onClick = {
+    Button(modifier = modifier. padding(16.dp),
+        onClick = {
         val intent = getPhoneAuthIntent()
         launcher.launch(intent)
     }) {
-        Text("Sign in with Phone")
+        Text("Sign in with Phone Number ")
     }
 }
 
