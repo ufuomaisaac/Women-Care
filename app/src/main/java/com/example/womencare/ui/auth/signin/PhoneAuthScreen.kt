@@ -5,33 +5,19 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import com.google.firebase.auth.FirebaseAuth
-import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
-import com.google.firebase.auth.PhoneAuthProvider
-// Dependencies
-import androidx.compose.runtime.*
-import androidx.compose.material3.*
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.womencare.R
 import com.example.womencare.ui.home.Destinations.MAIN_ROUTE
-import com.google.firebase.FirebaseException
-import com.google.firebase.auth.*
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import java.util.concurrent.TimeUnit
-
 
 
 @Composable
