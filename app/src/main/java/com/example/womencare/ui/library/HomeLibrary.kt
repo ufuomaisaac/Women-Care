@@ -663,18 +663,12 @@ fun CervicalCancerInfoScreen(navController: NavController) {
 
         SectionTitle(if (isYoruba) "🗺️ Níbí ti o ti lè lọ ní Osun" else "🗺️ Where to Screen in Osun State")
         BulletPoints(
-            items = if (isYoruba) listOf(
+            items =  listOf(
                 "UNIOSUN Teaching Hospital, Osogbo",
                 "State Specialist Hospital, Osogbo",
                 "Fountain University Health Centre",
                 "Iremide Medical Centre Annex",
                 "FOMWAN Secretariat, Ogo‑Oluwa"
-            ) else listOf(
-                "Iléewosan Ẹ̀kọ́ UNIOSUN, Ọ̀ṣogbo",
-                "Iléewosan Alákọ̀sílẹ̀ Ìpínlẹ̀, Ọ̀ṣogbo",
-                "Ilé Ìtọ́jú Fountain University",
-                "Ìpele Ilé Ìtọ́jú Iremide",
-                "Àgbàlá FOMWAN, Ogo‑Oluwa"
             )
         )
 
