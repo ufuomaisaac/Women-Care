@@ -23,7 +23,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 @Composable
 fun NoAuthLoginScreen(
     onLoginClick: (String, String, String) -> Unit,
-    languageViewModel: LanguageViewModel = hiltViewModel()
+    languageViewModel: LanguageViewModel
 ) {
     val isYoruba by languageViewModel.isYoruba.collectAsState()
     var phoneNumber by remember { mutableStateOf("") }
@@ -102,9 +102,9 @@ fun NoAuthLoginScreen(
 @Preview
 @Composable
 fun LoginScreenPreview() {
-    NoAuthLoginScreen(onLoginClick = { phoneNumber, name, city ->
+    /*NoAuthLoginScreen(onLoginClick = { phoneNumber, name, city ->
         // Handle login click with the provided parameters
-    })
+    })*/
 }
 
 

@@ -41,7 +41,7 @@ import com.example.womencare.ui.auth.signin.LanguageViewModel
 
 @Composable
 fun CounselingFlowScreen(
-    languageViewModel: LanguageViewModel = hiltViewModel()
+    languageViewModel: LanguageViewModel
 ) {
     val isYoruba by languageViewModel.isYoruba.collectAsState()
     var age by remember { mutableStateOf("") }
@@ -388,7 +388,7 @@ fun SectionTitle(title: String) {
 @Composable
 fun PreviewCounselingFlowScreen() {
     MaterialTheme {
-        CounselingFlowScreen()
+       // CounselingFlowScreen()
     }
 }
 /*
@@ -538,7 +538,7 @@ fun CervicalCancerInfoScreen(navController: NavController) {
 @Composable
 fun CervicalCancerInfoScreen(
     navController: NavController,
-    languageViewModel: LanguageViewModel = hiltViewModel()
+    languageViewModel: LanguageViewModel
 ) {
     val isYoruba by languageViewModel.isYoruba.collectAsState()
     val scrollState = rememberScrollState()

@@ -60,7 +60,7 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun ScreeningTrackerScreen(
     viewModel: ScreeningViewModel = hiltViewModel(),
-    languageViewModel: LanguageViewModel = hiltViewModel()
+    languageViewModel: LanguageViewModel
 ) {
     var isPlanning by remember { mutableStateOf(false) }
     var selectedDate by remember { mutableStateOf("") }
