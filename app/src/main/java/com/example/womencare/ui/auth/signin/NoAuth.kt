@@ -80,6 +80,7 @@ fun LoginScreen(
         Button(
             onClick = { onLoginClick(phoneNumber, name, city) },
             modifier = Modifier.fillMaxWidth()
+
         ) {
             Text("Login")
         }
