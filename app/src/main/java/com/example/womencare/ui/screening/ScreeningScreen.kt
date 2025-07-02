@@ -49,139 +49,18 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.womencare.R
+import com.example.womencare.ui.auth.signin.LanguageViewModel
 import com.example.womencare.ui.screening.ScreeningViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-/*
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun ScreeningTrackerScreen(viewModel: ScreeningViewModel = hiltViewModel()) {
-    var isPlanning by remember { mutableStateOf(false) }
-    //var hasGone by remember { mutableStateOf(false) }
-    var selectedDate by remember { mutableStateOf("") }
-    val context = LocalContext.current
-
-    // Load Lottie composition
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.lottie))
-
-    // Date Picker Dialog
-    val datePickerDialog = remember {
-        DatePickerDialog(
-            context,
-            { _, year, month, dayOfMonth ->
-                selectedDate = "$dayOfMonth/${month + 1}/$year"
-                //viewModel.setSelectedDate(selectedDate)
-            },
-            LocalDate.now().year,
-            LocalDate.now().monthValue - 1,
-            LocalDate.now().dayOfMonth
-        )
-    }
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(24.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp)
-    ) {
-        Text(
-            text = "🎯 Screening Tracker",
-            style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Bold
-        )
-
-        // Planning Card
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFFE1F5FE)),
-            elevation = CardDefaults.cardElevation(4.dp)
-        ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Checkbox(checked = isPlanning, onCheckedChange = { isPlanning = it })
-                Spacer(modifier = Modifier.width(8.dp))
-                Text("I'm planning to go for a screening", fontWeight = FontWeight.Medium)
-            }
-        }
-
-        // Gone Card with Date Picker
-        Card(
-            modifier = Modifier.fillMaxWidth()
-                .clickable{
-                isPlanning = true
-            },
-
-            colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9)),
-            elevation = CardDefaults.cardElevation(4.dp)
-        ) {
-            Column(
-                modifier = Modifier.padding(16.dp)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                   // Checkbox(checked = hasGone, onCheckedChange = { hasGone = it })
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text("Select a date", fontWeight = FontWeight.Medium)
-                }
-
-               // if (isPlanning) {
-                    Spacer(modifier = Modifier.height(12.dp))
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(Icons.Default.CalendarToday, contentDescription = null)
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Text("Date: ${if (selectedDate.isNotEmpty()) selectedDate else "Not selected"}")
-                        Spacer(modifier = Modifier.width(16.dp))
-                        Button(
-                            onClick = { datePickerDialog.show() },
-                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50))
-                        ) {
-                            Text("Pick Date")
-                        }
-                    //}
-                }
-            }
-        }
-
-        // Submit Button
-        Button(
-            onClick = {
-                // TODO: Save or show confirmation
-            },
-            modifier = Modifier.fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0288D1))
-        ) {
-            Text("Save Screening Status")
-        }
-
-        // Status Message with Lottie Animation
-        if ( selectedDate.isNotEmpty()) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                LottieAnimation(
-                    composition = composition,
-                    iterations = LottieConstants.IterateForever,
-                    modifier = Modifier.size(100.dp)
-                )
-                Text("✅ Great job! The date for your screening is on $selectedDate.", color = Color(0xFF2E7D32))
-            }
-        } else if (isPlanning) {
-            Text("📅 Awesome! Don't forget to schedule your screening soon.", color = Color(0xFF00796B))
-        }
-    }
-}
-
-
-*/
-
-
-@SuppressLint("StateFlowValueCalledInComposition")
-@RequiresApi(Build.VERSION_CODES.O)
-@Composable
-fun ScreeningTrackerScreen(viewModel: ScreeningViewModel = hiltViewModel()) {
+fun ScreeningTrackerScreen(
+    viewModel: ScreeningViewModel = hiltViewModel(),
+    languageViewModel: LanguageViewModel = hiltViewModel()
+) {
     var isPlanning by remember { mutableStateOf(false) }
     var selectedDate by remember { mutableStateOf("") }
     var isYoruba by remember { mutableStateOf(false) }

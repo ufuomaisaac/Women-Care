@@ -18,88 +18,12 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-
-/*
-
-@Composable
-fun NoAuthLoginScreen(
-    onLoginClick: (String, String, String) -> Unit
-) {
-    var phoneNumber by remember { mutableStateOf("") }
-    var name by remember { mutableStateOf("") }
-    var city by remember { mutableStateOf("") }
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-        Text(
-            text = "Welcome!",
-            style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
-        )
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-        OutlinedTextField(
-            value = phoneNumber,
-            onValueChange = { phoneNumber = it },
-            label = { Text("Phone Number") },
-            leadingIcon = { Icon(Icons.Default.Phone, contentDescription = null) },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        OutlinedTextField(
-            value = name,
-            onValueChange = { name = it },
-            label = { Text("Name") },
-            leadingIcon = { Icon(Icons.Default.Person, contentDescription = null) },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        OutlinedTextField(
-            value = city,
-            onValueChange = { city = it },
-            label = { Text("City") },
-            leadingIcon = { Icon(Icons.Default.LocationCity, contentDescription = null) },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Button(
-            onClick = { onLoginClick(phoneNumber, name, city) },
-            modifier = Modifier.fillMaxWidth()
-
-        ) {
-            Text("Login")
-        }
-    }
-}
-
-@Preview
-@Composable
-fun LoginScreenPreview() {
-    NoAuthLoginScreen(onLoginClick = { phoneNumber, name, city ->
-        // Handle login click with the provided parameters
-    })
-}
-*/
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun NoAuthLoginScreen(
-    onLoginClick: (String, String, String) -> Unit
+    onLoginClick: (String, String, String) -> Unit,
+    languageViewModel: LanguageViewModel = hiltViewModel()
 ) {
     var isYoruba by remember { mutableStateOf(false) }
     var phoneNumber by remember { mutableStateOf("") }
@@ -113,14 +37,6 @@ fun NoAuthLoginScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Language Toggle
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text("English")
-            Switch(checked = isYoruba, onCheckedChange = { isYoruba = it })
-            Text("Yorùbá")
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
 
         // Title
         Text(
@@ -170,6 +86,16 @@ fun NoAuthLoginScreen(
         ) {
             Text(if (isYoruba) "Wọlé" else "Login")
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text("English")
+            Switch(checked = isYoruba, onCheckedChange = { isYoruba = it })
+            Text("Yorùbá")
+        }
+
+
     }
 }
 

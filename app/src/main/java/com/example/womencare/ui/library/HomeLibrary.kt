@@ -35,9 +35,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.compose.ui.graphics.Color
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.womencare.ui.auth.signin.LanguageViewModel
 
 @Composable
-fun CounselingFlowScreen() {
+fun CounselingFlowScreen(
+    languageViewModel: LanguageViewModel = hiltViewModel()
+) {
     var isYoruba by remember { mutableStateOf(false) }
     var age by remember { mutableStateOf("") }
     var screenedRecently by remember { mutableStateOf<Boolean?>(null) }
@@ -539,7 +543,10 @@ fun CervicalCancerInfoScreen(navController: NavController) {
 }*/
 
 @Composable
-fun CervicalCancerInfoScreen(navController: NavController) {
+fun CervicalCancerInfoScreen(
+    navController: NavController,
+    languageViewModel: LanguageViewModel = hiltViewModel()
+) {
     var isYoruba by remember { mutableStateOf(false) }
     val scrollState = rememberScrollState()
 
