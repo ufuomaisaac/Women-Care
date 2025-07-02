@@ -32,6 +32,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.setValue
@@ -63,7 +64,7 @@ fun ScreeningTrackerScreen(
 ) {
     var isPlanning by remember { mutableStateOf(false) }
     var selectedDate by remember { mutableStateOf("") }
-    var isYoruba by remember { mutableStateOf(false) }
+    val isYoruba by languageViewModel.isYoruba.collectAsState()
 
     val context = LocalContext.current
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.lottie))
@@ -87,12 +88,6 @@ fun ScreeningTrackerScreen(
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
-        // Language Toggle
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text("English")
-            Switch(checked = isYoruba, onCheckedChange = { isYoruba = it })
-            Text("Yorùbá")
-        }
 
         Spacer(Modifier.height(12.dp))
 

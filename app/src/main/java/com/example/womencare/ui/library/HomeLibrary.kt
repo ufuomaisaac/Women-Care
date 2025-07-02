@@ -20,6 +20,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -42,7 +43,7 @@ import com.example.womencare.ui.auth.signin.LanguageViewModel
 fun CounselingFlowScreen(
     languageViewModel: LanguageViewModel = hiltViewModel()
 ) {
-    var isYoruba by remember { mutableStateOf(false) }
+    val isYoruba by languageViewModel.isYoruba.collectAsState()
     var age by remember { mutableStateOf("") }
     var screenedRecently by remember { mutableStateOf<Boolean?>(null) }
     var knowsHPV by remember { mutableStateOf<Boolean?>(null) }
@@ -54,15 +55,7 @@ fun CounselingFlowScreen(
             .padding(16.dp)
             .verticalScroll(rememberScrollState())
     ) {
-        // Language Toggle
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text("English")
-            Switch(
-                checked = isYoruba,
-                onCheckedChange = { isYoruba = it }
-            )
-            Text("Yorùbá")
-        }
+
         Spacer(modifier = Modifier.height(16.dp))
 
         // 🔹 MODULE 1: Welcome
@@ -547,7 +540,7 @@ fun CervicalCancerInfoScreen(
     navController: NavController,
     languageViewModel: LanguageViewModel = hiltViewModel()
 ) {
-    var isYoruba by remember { mutableStateOf(false) }
+    val isYoruba by languageViewModel.isYoruba.collectAsState()
     val scrollState = rememberScrollState()
 
     val context = LocalContext.current
@@ -565,16 +558,7 @@ fun CervicalCancerInfoScreen(
             .padding(16.dp)
     ) {
         // Language toggle
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.End,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            androidx.compose.material3.Text("English")
-            Switch(checked = isYoruba, onCheckedChange = { isYoruba = it })
-            Text("Yorùbá")
-        }
-        Spacer(Modifier.height(16.dp))
+       Spacer(Modifier.height(16.dp))
 
 
         androidx.compose.material3.Text(

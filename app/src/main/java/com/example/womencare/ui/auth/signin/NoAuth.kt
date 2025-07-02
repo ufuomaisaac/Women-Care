@@ -25,7 +25,7 @@ fun NoAuthLoginScreen(
     onLoginClick: (String, String, String) -> Unit,
     languageViewModel: LanguageViewModel = hiltViewModel()
 ) {
-    var isYoruba by remember { mutableStateOf(false) }
+    val isYoruba by languageViewModel.isYoruba.collectAsState()
     var phoneNumber by remember { mutableStateOf("") }
     var name by remember { mutableStateOf("") }
     var city by remember { mutableStateOf("") }
@@ -91,7 +91,7 @@ fun NoAuthLoginScreen(
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text("English")
-            Switch(checked = isYoruba, onCheckedChange = { isYoruba = it })
+            Switch(checked = isYoruba, onCheckedChange = { languageViewModel.toggleLanguage() })
             Text("Yorùbá")
         }
 
