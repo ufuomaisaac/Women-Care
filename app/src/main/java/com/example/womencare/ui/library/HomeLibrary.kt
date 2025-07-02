@@ -2,6 +2,7 @@ package com.example.womencare.ui.library
 
 import android.net.Uri
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -311,6 +312,8 @@ fun HPVKnowledgeSection(isYoruba: Boolean) {
         )
     }
 }
+
+
 fun generateRecommendation(
     age: Int?,
     screenedRecently: Boolean?,
@@ -391,7 +394,7 @@ fun PreviewCounselingFlowScreen() {
         CounselingFlowScreen()
     }
 }
-
+/*
 @Composable
 fun CervicalCancerInfoScreen(navController: NavController) {
     val scrollState = rememberScrollState()
@@ -533,7 +536,164 @@ fun CervicalCancerInfoScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(16.dp))
         VideoPlayer(context, uri_2)
     }
+}*/
+
+@Composable
+fun CervicalCancerInfoScreen(navController: NavController) {
+    var isYoruba by remember { mutableStateOf(false) }
+    val scrollState = rememberScrollState()
+
+    val context = LocalContext.current
+    val uri1 = Uri.parse("android.resource://${context.packageName}/${R.raw.eliminating_cervical_cancer}")
+    val uri2 = Uri.parse("android.resource://${context.packageName}/${R.raw.video1}")
+
+    val articles = listOf(
+        ArticleData("🚨 Early Signs & Screening:", "What Every Woman Should Know", R.drawable.ab3_stretching, "23/12/2021"),
+        ArticleData("Burden & Prevention", "Global Overview of Cervical Cancer", R.drawable.ab6_pre_natal_yoga, "23/12/2021"),
+    )
+
+    Column(
+        modifier = Modifier
+            .verticalScroll(scrollState)
+            .padding(16.dp)
+    ) {
+        // Language toggle
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.End,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text("English")
+            Switch(checked = isYoruba, onCheckedChange = { isYoruba = it })
+            Text("Yorùbá")
+        }
+        Spacer(Modifier.height(16.dp))
+
+        Text(
+            text = if (isYoruba) "Àrùn OGVÌ" else "Cervical Cancer",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(bottom = 8.dp)
+        )
+        Text(
+            text = if (isYoruba)
+                "Àrùn OGVÌ jẹ́ àrùn kan tó bẹ̀rẹ̀ ní sẹ́lù OGVÌ. Ó lè dènà àti tọ́jú ní kíákíá."
+            else
+                "Cervical cancer is a type of cancer that starts in the cells of the cervix…",
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+
+        Section(if (isYoruba) "🧬 Ìdí" else "🧬 Cause") {
+            Text(
+                text = if (isYoruba)
+                    "Awọn ọlọjẹ HPV tó lewu, pàápàá 16 àti 18, ni ń fa àrùn yii."
+                else
+                    "The primary cause is persistent infection with high‑risk types of HPV, especially types 16 and 18.",
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
+        }
+
+        Section(if (isYoruba) "🔍 Bí ó ti ń dagbasoke" else "🔍 Development") {
+            Text(
+                text = if (isYoruba)
+                    "Ó sábà ń dagbasoke díẹ̀ díẹ̀: sẹ́lù deede → CIN → àrùn tó jinlẹ."
+                else
+                    "Cervical cancer usually develops slowly over time: Normal cervical cells → Precancerous changes (CIN) → Invasive cancer.",
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
+        }
+
+        Section(if (isYoruba) "⚠️ Ààmì" else "⚠️ Symptoms") {
+            BulletPoints(
+                items = if (isYoruba) listOf(
+                    "Ẹjẹ̀ àìlódí (lẹ́yìn ibalopo, láàárin oṣù, lẹhin ìmúlẹ̀)",
+                    "Ìtúpalẹ̀ obìnrin tó yàtọ̀",
+                    "Ìrora ní pelvic tàbí nígbà ìbálòpọ̀"
+                ) else listOf(
+                    "Abnormal vaginal bleeding (e.g., after sex…)",
+                    "Unusual vaginal discharge",
+                    "Pelvic pain or pain during intercourse"
+                )
+            )
+        }
+
+        Section(if (isYoruba) "🛡️ Ìdènà" else "🛡️ Prevention") {
+            BulletPoints(
+                items = if (isYoruba) listOf(
+                    "Abẹrẹ HPV ṣáájú ìbálòpọ̀",
+                    "Pap smear ati ìwádìí HPV gbogbo",
+                    "Ìbálòpọ̀ àabo (kondomu)"
+                ) else listOf(
+                    "HPV vaccination (before sexual activity begins)",
+                    "Regular Pap smears and HPV testing",
+                    "Safe sex practices (e.g., condom use)"
+                )
+            )
+        }
+
+        Section(if (isYoruba) "🩺 Ìtọ́jú" else "🩺 Treatment") {
+            BulletPoints(
+                items = if (isYoruba) listOf(
+                    "Ìoperẹ (bí hysterectomy)",
+                    "Radiation therapy",
+                    "Kemoterapi",
+                    "Immunotherapy"
+                ) else listOf(
+                    "Surgery (e.g., hysterectomy)",
+                    "Radiation therapy",
+                    "Chemotherapy",
+                    "Targeted therapy or immunotherapy"
+                )
+            )
+        }
+
+        SectionTitle(if (isYoruba) "🛡️ Ọjọ́ ìwádì" else "🛡️ Screening Frequency")
+        BulletPoints(
+            items = if (isYoruba) listOf(
+                "Ọdún 25–49: lẹ́ẹ̀kan ní ọdún mẹ́ta.",
+                "Ọdún 50–64: lẹ́ẹ̀kan ní ọdún márún-ún.",
+                "Ní Naijiria: lẹ́ẹ̀kan lododun."
+            ) else listOf(
+                "Ages 25–49: every 3 years.",
+                "Ages 50–64: every 5 years if previous results were normal.",
+                "In Nigeria: once a year is often recommended."
+            )
+        )
+
+        SectionTitle(if (isYoruba) "🗺️ Níbí ti o ti lè lọ ní Osun" else "🗺️ Where to Screen in Osun State")
+        BulletPoints(
+            items = if (isYoruba) listOf(
+                "UNIOSUN Teaching Hospital, Osogbo",
+                "State Specialist Hospital, Osogbo",
+                "Fountain University Health Centre",
+                "Iremide Medical Centre Annex",
+                "FOMWAN Secretariat, Ogo‑Oluwa"
+            ) else listOf(
+                "Iléewosan Ẹ̀kọ́ UNIOSUN, Ọ̀ṣogbo",
+                "Iléewosan Alákọ̀sílẹ̀ Ìpínlẹ̀, Ọ̀ṣogbo",
+                "Ilé Ìtọ́jú Fountain University",
+                "Ìpele Ilé Ìtọ́jú Iremide",
+                "Àgbàlá FOMWAN, Ogo‑Oluwa"
+            )
+        )
+
+        Spacer(Modifier.height(16.dp))
+        Text(if (isYoruba) "Àwọn Ìtàn Ìlera" else "Health Tips Articles", style = MaterialTheme.typography.headlineSmall)
+        Spacer(Modifier.height(8.dp))
+        articles.forEach { art ->
+            ArticleCard(article = art, onItemClicked = { navController.navigate(Articles.FirstArticle.name) })
+            Spacer(Modifier.height(8.dp))
+        }
+
+        Spacer(Modifier.height(16.dp))
+        Text(if (isYoruba) "Fídíò Ìlera" else "Health Tips Video", style = MaterialTheme.typography.headlineSmall)
+        Spacer(Modifier.height(16.dp))
+        VideoPlayer(context, uri1)
+        Spacer(Modifier.height(8.dp))
+        VideoPlayer(context, uri2)
+    }
 }
+
 
 @Composable
 fun Section(title: String, content: @Composable () -> Unit) {
