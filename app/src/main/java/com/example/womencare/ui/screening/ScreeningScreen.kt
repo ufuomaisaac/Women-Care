@@ -29,6 +29,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -51,6 +52,7 @@ import com.example.womencare.R
 import com.example.womencare.ui.screening.ScreeningViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+/*
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @RequiresApi(Build.VERSION_CODES.O)
@@ -173,3 +175,147 @@ fun ScreeningTrackerScreen(viewModel: ScreeningViewModel = hiltViewModel()) {
 }
 
 
+*/
+
+
+@SuppressLint("StateFlowValueCalledInComposition")
+@RequiresApi(Build.VERSION_CODES.O)
+@Composable
+fun ScreeningTrackerScreen(viewModel: ScreeningViewModel = hiltViewModel()) {
+    var isPlanning by remember { mutableStateOf(false) }
+    var selectedDate by remember { mutableStateOf("") }
+    var isYoruba by remember { mutableStateOf(false) }
+
+    val context = LocalContext.current
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.lottie))
+
+    val datePickerDialog = remember {
+        DatePickerDialog(
+            context,
+            { _, year, month, dayOfMonth ->
+                selectedDate = "$dayOfMonth/${month + 1}/$year"
+            },
+            LocalDate.now().year,
+            LocalDate.now().monthValue - 1,
+            LocalDate.now().dayOfMonth
+        )
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(24.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp)
+    ) {
+        // Language Toggle
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text("English")
+            Switch(checked = isYoruba, onCheckedChange = { isYoruba = it })
+            Text("Yorùbá")
+        }
+
+        Spacer(Modifier.height(12.dp))
+
+        // Title
+        Text(
+            text = if (isYoruba) "🎯 Akọ̀ọ́lẹ̀ Àyẹ̀wò Ìgbẹ́yà" else "🎯 Screening Tracker",
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold
+        )
+
+        // Planning Card
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(containerColor = Color(0xFFE1F5FE)),
+            elevation = CardDefaults.cardElevation(4.dp)
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Checkbox(checked = isPlanning, onCheckedChange = { isPlanning = it })
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = if (isYoruba) "Mo ń gbero láti lọ sí àyẹ̀wò" else "I'm planning to go for a screening",
+                    fontWeight = FontWeight.Medium
+                )
+            }
+        }
+
+        // Date Picker Card
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { isPlanning = true },
+            colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9)),
+            elevation = CardDefaults.cardElevation(4.dp)
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(
+                    text = if (isYoruba) "Yan ọjọ́" else "Select a date",
+                    fontWeight = FontWeight.Medium
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(Icons.Default.CalendarToday, contentDescription = null)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = if (isYoruba)
+                            "Ọjọ́: ${if (selectedDate.isNotEmpty()) selectedDate else "Kò tíì yàn"}"
+                        else
+                            "Date: ${if (selectedDate.isNotEmpty()) selectedDate else "Not selected"}"
+                    )
+                    Spacer(modifier = Modifier.width(16.dp))
+                    Button(
+                        onClick = { datePickerDialog.show() },
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50))
+                    ) {
+                        Text(if (isYoruba) "Yan Ọjọ́" else "Pick Date")
+                    }
+                }
+            }
+        }
+
+        // Submit Button
+        Button(
+            onClick = {
+                // Save or show confirmation
+            },
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0288D1))
+        ) {
+            Text(if (isYoruba) "Fipamọ́ Ìpinnu Ìdánwò" else "Save Screening Status")
+        }
+
+        // Feedback messages
+        if (selectedDate.isNotEmpty()) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                LottieAnimation(
+                    composition = composition,
+                    iterations = LottieConstants.IterateForever,
+                    modifier = Modifier.size(100.dp)
+                )
+                Text(
+                    text = if (isYoruba)
+                        "✅ Ọjọ́ tí o yan fún àyẹ̀wò rẹ̀ ni: $selectedDate. Ìgbésẹ̀ ńlá ni!"
+                    else
+                        "✅ Great job! The date for your screening is on $selectedDate.",
+                    color = Color(0xFF2E7D32)
+                )
+            }
+        } else if (isPlanning) {
+            Text(
+                text = if (isYoruba)
+                    "📅 Dáa rárá! Má gbàgbé láti yàn ọjọ́ ayẹwo rẹ."
+                else
+                    "📅 Awesome! Don't forget to schedule your screening soon.",
+                color = Color(0xFF00796B)
+            )
+        }
+    }
+}
