@@ -1,4 +1,4 @@
-package com.example.womencare.ui.auth.viewmodel
+package com.example.womencare.ui.auth.signin.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

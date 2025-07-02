@@ -1,22 +1,17 @@
 
 package com.example.womencare.ui.home
 
-import SignInScreen
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.mothercare.ui.scene.auth.signup.SignUpScreen
-import com.example.womencare.ui.auth.signin.LanguageViewModel
+import com.example.womencare.ui.auth.signin.viewmodel.LanguageViewModel
 import com.example.womencare.ui.auth.signin.NoAuthLoginScreen
-import com.example.womencare.ui.auth.signin.PhoneAuthScreen
 import com.example.womencare.ui.home.Destinations.SIGN_IN_ROUTE
-import com.example.womencare.ui.home.Destinations.SIGN_UP_ROUTE
 import com.example.womencare.ui.home.Destinations.MAIN_ROUTE
 
 object Destinations{
@@ -36,15 +31,6 @@ fun OnEntryNavigation(
         navController = navController,
         startDestination = Destinations.SIGN_IN_ROUTE
     ) {
-
-       /* composable(route = SIGN_UP_ROUTE) {
-           SignUpScreen(
-                modifier = Modifier,
-                onSignUpSubmitted = {navController.navigate(route = SIGN_IN_ROUTE)},
-                NavUp = { }
-            )
-            //PhoneAuthScreen(context)
-        }*/
 
         composable(route = SIGN_IN_ROUTE) {
             NoAuthLoginScreen(onLoginClick = { phoneNumber, name, city ->

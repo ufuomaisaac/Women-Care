@@ -1,4 +1,3 @@
-import android.provider.ContactsContract.CommonDataKinds.Phone
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
@@ -32,7 +31,7 @@ import com.example.womencare.ui.auth.signin.PhoneAuthScreen
 import com.example.womencare.ui.auth.state.EmailState
 import com.example.womencare.ui.auth.state.EmailStateSaver
 import com.example.womencare.ui.auth.state.PasswordState
-import com.example.womencare.ui.auth.viewmodel.AuthViewModel
+import com.example.womencare.ui.auth.signin.viewmodel.AuthViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
