@@ -27,6 +27,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.womencare.R
 import com.example.womencare.theme.WomenCareTheme
+import com.example.womencare.ui.auth.signin.viewmodel.LanguageViewModel
 import com.example.womencare.ui.library.ArticleItem
 import com.example.womencare.ui.library.Articles
 import com.example.womencare.ui.library.CervicalCancerInfoScreen
@@ -53,7 +54,10 @@ class MainActivity : ComponentActivity() {
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun  MainScreen(context: MainActivity) {
+fun  MainScreen(
+    context: MainActivity,
+    languageViewModel: LanguageViewModel
+) {
     var navController: NavHostController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     var currentDestinations = navBackStackEntry?.destination
@@ -100,16 +104,16 @@ fun  MainScreen(context: MainActivity) {
             modifier = Modifier.padding(padding)) {
 
             composable(MainBottomDestinations.Home.route) {
-                CounselingFlowScreen()
+                CounselingFlowScreen(languageViewModel = languageViewModel)
 
             }
 
             composable(MainBottomDestinations.Library.route) {
-                CervicalCancerInfoScreen(navController = navController)
+                CervicalCancerInfoScreen(navController = navController,languageViewModel = languageViewModel)
 
             }
             composable(MainBottomDestinations.Map.route) {
-                ScreeningTrackerScreen()
+                ScreeningTrackerScreen(languageViewModel = languageViewModel)
 
             }
 

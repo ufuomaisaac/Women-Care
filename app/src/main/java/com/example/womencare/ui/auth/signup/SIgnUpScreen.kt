@@ -38,7 +38,7 @@ import com.example.womencare.theme.WomenCareTheme
 import com.example.womencare.ui.auth.state.ConfirmPasswordState
 import com.example.womencare.ui.auth.state.EmailState
 import com.example.womencare.ui.auth.state.PasswordState
-import com.example.womencare.ui.auth.viewmodel.AuthViewModel
+import com.example.womencare.ui.auth.signin.viewmodel.AuthViewModel
 
 @Composable
 fun SignUpScreen(
