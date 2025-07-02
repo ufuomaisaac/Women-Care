@@ -563,19 +563,20 @@ fun CervicalCancerInfoScreen(navController: NavController) {
             horizontalArrangement = Arrangement.End,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text("English")
+            androidx.compose.material3.Text("English")
             Switch(checked = isYoruba, onCheckedChange = { isYoruba = it })
             Text("Yorùbá")
         }
         Spacer(Modifier.height(16.dp))
 
-        Text(
+
+        androidx.compose.material3.Text(
             text = if (isYoruba) "Àrùn OGVÌ" else "Cervical Cancer",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = 8.dp)
         )
-        Text(
+        androidx.compose.material3.Text(
             text = if (isYoruba)
                 "Àrùn OGVÌ jẹ́ àrùn kan tó bẹ̀rẹ̀ ní sẹ́lù OGVÌ. Ó lè dènà àti tọ́jú ní kíákíá."
             else
@@ -584,7 +585,7 @@ fun CervicalCancerInfoScreen(navController: NavController) {
         )
 
         Section(if (isYoruba) "🧬 Ìdí" else "🧬 Cause") {
-            Text(
+            androidx.compose.material3.Text(
                 text = if (isYoruba)
                     "Awọn ọlọjẹ HPV tó lewu, pàápàá 16 àti 18, ni ń fa àrùn yii."
                 else
@@ -594,7 +595,7 @@ fun CervicalCancerInfoScreen(navController: NavController) {
         }
 
         Section(if (isYoruba) "🔍 Bí ó ti ń dagbasoke" else "🔍 Development") {
-            Text(
+            androidx.compose.material3.Text(
                 text = if (isYoruba)
                     "Ó sábà ń dagbasoke díẹ̀ díẹ̀: sẹ́lù deede → CIN → àrùn tó jinlẹ."
                 else
