@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 
 @Composable
-fun LoginScreen(
+fun NoAuthLoginScreen(
     onLoginClick: (String, String, String) -> Unit
 ) {
     var phoneNumber by remember { mutableStateOf("") }
@@ -90,7 +90,7 @@ fun LoginScreen(
 @Preview
 @Composable
 fun LoginScreenPreview() {
-    LoginScreen(onLoginClick = { phoneNumber, name, city ->
+    NoAuthLoginScreen(onLoginClick = { phoneNumber, name, city ->
         // Handle login click with the provided parameters
     })
 }
