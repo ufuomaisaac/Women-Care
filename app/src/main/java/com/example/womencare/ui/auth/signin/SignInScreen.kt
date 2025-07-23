@@ -119,7 +119,6 @@ fun SignInContent(
                     onClick = {
                         if (emailState.isValid && passwordState.isValid) {
 
-                            //  authViewModel.signIn(emailState.text, passwordState.text)
 
                             isLoading = true
 

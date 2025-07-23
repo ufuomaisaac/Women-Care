@@ -2,6 +2,7 @@ package com.example.womencare.ui.library
 
 import android.net.Uri
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +16,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.RadioButton
 import androidx.compose.material.Text
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.runtime.Composable
@@ -35,7 +38,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.compose.ui.graphics.Color
 import com.example.womencare.ui.auth.signin.viewmodel.LanguageViewModel
-
 @Composable
 fun CounselingFlowScreen(
     languageViewModel: LanguageViewModel
@@ -49,154 +51,144 @@ fun CounselingFlowScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
             .verticalScroll(rememberScrollState())
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // 🔹 MODULE 1: Welcome
-        SectionHeader(if (isYoruba) "Ẹ ku ìbàlẹ̀, obìnrin alágbára!" else "Welcome, dear woman of strength!")
+        // #1 Welcome
+        SectionHeader(if (isYoruba) "Ẹ kú ìbàlẹ̀, obìnrin alágbára!" else "Welcome, dear woman of strength!")
         Paragraph(
-            if (isYoruba) """
+            if (isYoruba)
+                """
                 Ìlera rẹ̀ ni ọrọ̀ rẹ. A wà lẹ́gbẹ̀ẹ́ rẹ.
                 Ṣé o mọ̀ pé àrùn ìgbẹ́yà jẹ́ ọ̀kan lára àwọn àrùn tí a lè dáwọ̀ dúró?
                 Ìdánwò kíákíá lè mú kó rọrùn láti rí ayipada ṣáájú kí o tó burú.
                 Kò pé, kò nira, ó sì lè gba ìyànjú.
-            """.trimIndent()
-            else """
-                
-                Your health is your wealth, and we're here to walk with you.      
-                Do you know that cervical cancer is one of the few cancers that can actually be prevented?
-                Screening helps us catch early changes before they become dangerous
-                It’s quick, safe, and can save your life.
-            """.trimIndent()
+                """.trimIndent()
+            else
+                """
+                Your health is your wealth, and we're here with you.
+                Do you know that cervical cancer is one of the few cancers that can be prevented?
+                Quick screening helps find early changes before they become serious.
+                It’s fast, safe, and can save your life.
+                """.trimIndent()
         )
-        Spacer(modifier = Modifier.height(16.dp))
 
-        // 🔹 MODULE 2: Screening Process
+        // #2 Screening Info
         SectionHeader(if (isYoruba) "Ìmọ̀ nípa Ìdánwò Ìgbẹ́yà" else "Understanding the Screening Process")
         Paragraph(
-            if (isYoruba) """
-                Ọ̀pọ̀ obìnrin ni ń bẹ̀rù ìdánwò yìí. Ṣùgbọ́n, ìwọ kò wà ní kànkan!
-                
-                ✔️ Ó gba iṣẹju díẹ̀ péré (10–15).
-                ✔️ Kò ní bàjẹ́ fún ìbálòpọ̀ tàbí èròjà obìnrin rẹ.
-                ✔️ Kò yọ ìrẹsì nù.
-                ✔️ Ó lè rí àfihàn àkókò ṣáájú kí àìlera tó hàn gbangba.
-                Bíràkù rẹ̀ mọ́ kó jẹ́ bi ṣíṣe ayẹwo ọkọ ayọ́kẹ́lẹ́ rẹ.
-            """.trimIndent()
-            else """
-                Many women are scared or unsure about cervical screening. You are not alone!
-                
-                ✔️ Screening takes just 10–15 minutes.
-                ✔️ It is usually painless or mildly uncomfortable.
-                ✔️ It does not take your virginity or affect fertility.
-                ✔️ It can detect early signs long before symptoms appear.
-                Think of it like a car check-up — it's better to detect a fault early.
-            """.trimIndent()
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // 🔹 MODULE 3: Myths & Barriers
-        SectionHeader(if (isYoruba) "Ṣíṣe kúrò nínú àwọn èrò àìtó" else "Overcoming Myths & Barriers")
-        MythAndTruth(
-            myth = if (isYoruba) "❌ “Mi ò ní ààmì, bẹ́ẹ̀ni mo wà láradá.”"
-            else "❌ “I don’t have symptoms, so I’m fine.”",
-            truth = if (isYoruba) "✅ Otitọ ni pé àrùn ìgbẹ́yà máa ń dàgbà lọ́nà tí kò fi hàn gbangba. Ìdánwò ní kókó ni."
-            else "✅ Truth: Cervical cancer doesn’t show signs until it’s advanced. Early screening is key."
-        )
-        MythAndTruth(
-            myth = if (isYoruba) "❌ “Ó jẹ́ ẹ̀tàn tàbí kó bà mí lórí.”"
-            else "❌ “It’s shameful or painful.”",
-            truth = if (isYoruba) "✅ Ó ń ṣẹlẹ̀ ní àìmọ̀nà, pẹ̀lú àwọn alágbàse obìnrin. Ó gba iṣẹ́jú díẹ̀ péré."
-            else "✅ Truth: It is done respectfully by trained female staff and takes a few minutes."
-        )
-        MythAndTruth(
-            myth = if (isYoruba) "❌ “Mo bẹ̀rù abajade rẹ̀.”"
-            else "❌ “I’m afraid of the results.”",
-            truth = if (isYoruba) "✅ Ìfihàn àkókò dá òye ẹ̀mí padà — ó lè gba ẹ̀tọ́ ìtọ́jú."
-            else "✅ Truth: Early detection gives you a higher chance to be treated and live well."
+            if (isYoruba)
+                """
+                Ọ̀pọ̀ obìnrin ní ìbànújẹ̀ tàbí ìkà. Ìwọ kì í ṣe rẹ́mú kàn!
+                ✔️ Ó gba iṣẹ́jú 10–15.
+                ✔️ Kò ṣẹ́lẹ̀ fún ìbálòpọ̀ tàbí ìyà ọmọ.
+                ✔️ Kò kó ìrẹsì kúrò.
+                ✔️ Ó lè rí àsọtẹ́lẹ̀ ṣáájú kí àámì hàn.
+                Ronu rẹ̀ gẹ́gẹ́ bí ìyẹ̀wò ọkọ ayọ́kẹ́lẹ́—rírí àṣìṣe ṣáájú dandan.
+                """.trimIndent()
+            else
+                """
+                Many women feel frightened or unsure about screening. You are not alone!
+                ✔️ It takes just 10–15 minutes.
+                ✔️ Usually painless or mildly uncomfortable.
+                ✔️ Does not affect virginity or fertility.
+                ✔️ It detects early signs before symptoms appear.
+                Think of it like a car check‑up — best caught early.
+                """.trimIndent()
         )
 
+        // #3 Myths & Truths inside Card
+        SectionHeader(if (isYoruba) "Ṣíṣe kúrò nínú awọn èrò àìtó" else "Myths & Truths")
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
+        ) {
+            Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                MythAndTruth(
+                    myth = if (isYoruba) "❌ “Mi ò ní ààmì, bẹ́ẹ̀ni mo wà láradá.”"
+                    else "❌ “I don’t have symptoms, so I’m fine.”",
+                    truth = if (isYoruba) "✅ Àrùn ìgbẹ́yà sábà ń hàn dákẹ́; ìdánwò kókó ni."
+                    else "✅ Truth: Cervical cancer shows no early signs. Early screening is essential."
+                )
+                MythAndTruth(
+                    myth = if (isYoruba) "❌ “Ó jẹ́ ẹ̀tàn tàbí kó bà mí lórí.”"
+                    else "❌ “It’s shameful or painful.”",
+                    truth = if (isYoruba) "✅ Ó ń ṣiṣẹ́ láti ọwọ́ oníwòsàn obìnrin, ó sì kéré ju iṣẹ́ju kan."
+                    else "✅ It’s done respectfully by trained female staff and is quick."
+                )
+                MythAndTruth(
+                    myth = if (isYoruba) "❌ “Mo bẹ̀rù abajade rẹ̀.”"
+                    else "❌ “I’m afraid of the results.”",
+                    truth = if (isYoruba) "✅ Ìfihàn kókó ń jẹ́ kí o ní àmúró ìtọ́jú."
+                    else "✅ Early detection gives you timely treatment and peace of mind."
+                )
+            }
+        }
+
+        // #4 Call to Action
+        SectionHeader(if (isYoruba) "Ìpè àtìmọ̀ràn" else "Call to Action")
         Paragraph(
-            if (isYoruba) "Rí i dájú pé ìmọ̀ yìí jẹ́ agbára — kì í ṣe ohun ẹ̀rù."
-            else "Remember, being informed is not fearful — it’s powerful."
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        // 🔹 MODULE 4: Motivational Call
-        SectionHeader(if (isYoruba) "Ìpè àtìmọ̀ràn pẹ̀lú ìtara" else "Motivational Call to Action")
-        Paragraph(
-            if (isYoruba) """
-                
-                Tí o bá ti dé bí bẹ́ẹ̀, ó túmọ̀ sí pé o ṣe pàtàkì.
-                Ìwọ jẹ́ ìyá, arábìnrin, aya, olórí — ilera rẹ jẹ́ gbígbà lórí fún ẹbí rẹ.
-                Má bà a lọ́! Ẹ jẹ́ ká forúkọsílẹ̀ fún ìdánwò rẹ lónìí.
-                MomaCare wà pẹ̀lú rẹ. Ìdánwò kékeré le jẹ́ ìkànsí àlàáfíà àná.
-            """.trimIndent()
-            else """
-                
-                You’ve come this far — and that means you care. Now is the time to act.
-                You are a mother, a sister, a wife, a leader — and your family needs you healthy.
-                Don’t wait until it’s too late.
-                Let’s book your screening today. You’re not alone — MomaCare is with you.
-                A small test now can give you peace of mind later.
-            """.trimIndent()
+            if (isYoruba)
+                """
+                O ti dé ibi ti o yẹ̀ — ó túmọ̀ sí pé ìwọ bára rẹ̀ nínú.
+                Ìwọ ni ìyá, arábìnrin, aya, olórí — ìlera rẹ̀ jẹ́ bí ìbelẹ̀ fún ẹbí rẹ.
+                Má ṣiyèméjì! Jẹ́ ká forúkọsílẹ̀ fún ìdánwò rẹ̀ lónìí.
+                MomaCare wà pẹ̀lú rẹ — ìdánwò kékeré, àlàáfíà tó pé.
+                """.trimIndent()
+            else
+                """
+                You’ve come this far—that means you care.
+                You’re a mother, sister, wife, leader—your health matters to your family.
+                Don’t wait—let’s book your screening today.
+                MomaCare is with you—even a small test can bring peace of mind.
+                """.trimIndent()
         )
 
-        // 🔹 FORM: Cervical Health Check
-        SectionHeader(if (isYoruba) "Ìdánwò Ìlera Ìgbẹ́yà" else "Cervical Health Check")
-
+        // #5 Form Inputs
+        SectionHeader(if (isYoruba) "Ìdánwò Ìlera Ìgbẹ́yà" else "Health Check")
         OutlinedTextField(
             value = age,
             onValueChange = { age = it },
-            label = {
-                Text(if (isYoruba) "Ìgbọ̀nwọ̀ ọjọ́ ori rẹ?" else "What is your age?")
-            },
+            label = { Text(if (isYoruba) "Ọjọ́‑ori rẹ?" else "What is your age?") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             modifier = Modifier.fillMaxWidth()
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text(if (isYoruba) "Ṣé o ti ṣe ìdánwò ṣáájú?" else "Have you had a cervical screening before?")
-        Row {
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            Column { Text(if (isYoruba) "Ṣé o ti ṣe ìdánwò ṣáájú?" else "Had a previous screening?") }
             RadioButtonWithLabel(if (isYoruba) "Bẹ́ẹ̀ni" else "Yes", screenedRecently == true) { screenedRecently = true }
             RadioButtonWithLabel(if (isYoruba) "Rárá" else "No", screenedRecently == false) { screenedRecently = false }
         }
 
-        Text(if (isYoruba) "Ṣé o mọ̀ ohun tí HPV jẹ́?" else "Do you know what HPV is?")
-        Row {
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            Column { Text(if (isYoruba) "Ṣé o mọ̀ pé kí ni HPV?" else "Do you know what HPV is?") }
             RadioButtonWithLabel(if (isYoruba) "Bẹ́ẹ̀ni" else "Yes", knowsHPV == true) { knowsHPV = true }
             RadioButtonWithLabel(if (isYoruba) "Rárá" else "No", knowsHPV == false) { knowsHPV = false }
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(onClick = {
-            val ageNum = age.toIntOrNull() ?: return@Button
-            result = generateRecommendation(
-                ageNum, screenedRecently, knowsHPV,
-                isYoruba = isYoruba
-            )
-        }) {
+        // #6 Recommendation Button
+        Button(
+            onClick = {
+                val ageNum = age.toIntOrNull() ?: return@Button
+                result = generateRecommendation(ageNum, screenedRecently, knowsHPV, isYoruba)
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Text(if (isYoruba) "Gba ìmọ̀ràn" else "Get Recommendation")
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        if (result.isNotBlank()) {
-            Text(result, style = MaterialTheme.typography.bodyLarge)
+        result.takeIf { it.isNotBlank() }?.let {
+            Text(it, style = MaterialTheme.typography.bodyLarge)
         }
 
         if (knowsHPV == false) {
-            Spacer(modifier = Modifier.height(16.dp))
             HPVKnowledgeSection(isYoruba)
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(32.dp))
     }
 }
+
 
 @Composable
 fun SectionHeader(text: String) {
@@ -388,149 +380,6 @@ fun PreviewCounselingFlowScreen() {
        // CounselingFlowScreen()
     }
 }
-/*
-@Composable
-fun CervicalCancerInfoScreen(navController: NavController) {
-    val scrollState = rememberScrollState()
-
-    val context = LocalContext.current
-    val rawId_1 = R.raw.eliminating_cervical_cancer
-    val rawId_2 = R.raw.video1
-
-
-    val uri_1 = Uri.parse("android.resource://${context.packageName}/$rawId_1")
-    val uri_2 = Uri.parse("android.resource://${context.packageName}/$rawId_2")
-
-    val articles = listOf(
-        ArticleData(
-            title = "🚨 Early Signs & Screening:",
-            description = "What Every Woman Should Know",
-            imageRes = R.drawable.ab3_stretching,
-            postDate = "23/12/2021"
-        ),
-        ArticleData(
-            title = "Burden & Prevention",
-            description = "Global Overview of Cervical Cancer",
-            imageRes = R.drawable.ab6_pre_natal_yoga,
-            postDate = "23/12/2021"
-        ),
-
-    )
-
-    Column(
-        modifier = Modifier
-            .verticalScroll(scrollState)
-            .padding(16.dp)
-    ) {
-        androidx.compose.material3.Text(
-            text = "Cervical Cancer",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 8.dp)
-        )
-
-        androidx.compose.material3.Text(
-            text = "Cervical cancer is a type of cancer that starts in the cells of the cervix—the lower, narrow end of the uterus that connects to the vagina. It is one of the most preventable and treatable types of cancer when detected early.",
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
-
-        Section(title = "🧬 Cause") {
-            androidx.compose.material3.Text(
-                text = "The primary cause is persistent infection with high-risk types of human papillomavirus (HPV), especially types 16 and 18. HPV is a common sexually transmitted infection.",
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
-        }
-
-        Section(title = "🔍 Development") {
-            androidx.compose.material3.Text(
-                text = "Cervical cancer usually develops slowly over time:\n\n" +
-                        "Normal cervical cells →\n" +
-                        "Precancerous changes (cervical intraepithelial neoplasia, CIN) →\n" +
-                        "Invasive cancer, if left untreated.",
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
-        }
-
-        Section(title = "⚠️ Symptoms") {
-            BulletPoints(
-                listOf(
-                    "Abnormal vaginal bleeding (e.g., after sex, between periods, post-menopause)",
-                    "Unusual vaginal discharge",
-                    "Pelvic pain or pain during intercourse"
-                )
-            )
-        }
-
-        Section(title = "🛡️ Prevention") {
-            BulletPoints(
-                listOf(
-                    "HPV vaccination (recommended before sexual activity begins)",
-                    "Regular Pap smears and HPV testing (screening can detect precancerous changes)",
-                    "Safe sex practices (e.g., condom use)"
-                )
-            )
-        }
-
-        Section(title = "🩺 Treatment") {
-            BulletPoints(
-                listOf(
-                    "Surgery (e.g., hysterectomy)",
-                    "Radiation therapy",
-                    "Chemotherapy",
-                    "Targeted therapy or immunotherapy in advanced stages"
-                )
-            )
-        }
-        SectionTitle("\uD83D\uDEE1\uFE0F How often should I screen?")
-        BulletPoints(
-            listOf(
-                "Ages 25–49: every 3 years.",
-                "Ages 50–64: every 5 years if previous results were normal.",
-                "In Nigeria: once a year is often recommended."
-            )
-        )
-
-        SectionTitle("\uD83D\uDEE1\uFE0F Where can I go in Osun State?")
-        BulletPoints(
-            listOf(
-                "UNIOSUN Teaching Hospital, Osogbo",
-                "State Specialist Hospital, Osogbo",
-                "Fountain University Health Centre",
-                "Iremide Medical Centre Annex",
-                "FOMWAN Secretariat, Ogo-Oluwa"
-            )
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(
-            "Health Tips Articles",
-            style = MaterialTheme.typography.headlineSmall
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        ArticleCard(
-            article = articles[0], onItemClicked = { navController.navigate(route = Articles.FirstArticle.name) }
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-        ArticleCard(
-            article = articles[1], onItemClicked = { navController.navigate(route = Articles.FirstArticle.name) }
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(
-            "Health Tips Video",
-            style = MaterialTheme.typography.headlineSmall
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Spacer(modifier = Modifier.height(16.dp))
-        VideoPlayer(context, uri_1)
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Spacer(modifier = Modifier.height(16.dp))
-        VideoPlayer(context, uri_2)
-    }
-}*/
 
 @Composable
 fun CervicalCancerInfoScreen(
