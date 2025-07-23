@@ -501,6 +501,7 @@ fun CervicalCancerInfoScreen(
         SectionTitle(if (isYoruba) "🗺️ Níbí ti o ti lè lọ ní Osun" else "🗺️ Where to Screen in Osun State")
         BulletPoints(
             items =  listOf(
+                "OAUTHC, Ile-Ife",
                 "UNIOSUN Teaching Hospital, Osogbo",
                 "State Specialist Hospital, Osogbo",
                 "Fountain University Health Centre",
