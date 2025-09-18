@@ -558,7 +558,7 @@ fun BulletPoints(items: List<String>) {
 
 
 
-/*@Composable
+@Composable
 fun TwoImagesFullVertical() {
     Column(
         modifier = Modifier
@@ -582,7 +582,7 @@ fun TwoImagesFullVertical() {
             contentScale = ContentScale.Crop
         )
     }
-}*/
+}
 
 @Composable
 fun ImageScrollScreen() {

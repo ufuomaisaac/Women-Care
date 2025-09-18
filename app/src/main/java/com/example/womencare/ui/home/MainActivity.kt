@@ -33,6 +33,7 @@ import com.example.womencare.ui.library.ArticleItem
 import com.example.womencare.ui.library.Articles
 import com.example.womencare.ui.library.CervicalCancerInfoScreen
 import com.example.womencare.ui.library.CounselingFlowScreen
+import com.example.womencare.ui.library.ImageScrollScreen
 import com.example.womencare.ui.library.TwoImagesFullVertical
 
 
@@ -116,7 +117,10 @@ fun  MainScreen(
             }
 
             composable(route = MainBottomDestinations.Image.route) {
+                //ImageScrollScreen()
                 TwoImagesFullVertical()
+
+
             }
 
             composable(MainBottomDestinations.Map.route) {
