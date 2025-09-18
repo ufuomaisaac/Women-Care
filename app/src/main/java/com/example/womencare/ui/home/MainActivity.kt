@@ -110,8 +110,8 @@ fun  MainScreen(
             }
 
             composable(MainBottomDestinations.Library.route) {
-                //CervicalCancerInfoScreen(navController = navController,languageViewModel = languageViewModel)
-                TwoImagesTopBottom()
+                CervicalCancerInfoScreen(navController = navController,languageViewModel = languageViewModel)
+
 
             }
             composable(MainBottomDestinations.Map.route) {
