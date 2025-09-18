@@ -1,8 +1,10 @@
 package com.example.womencare.ui.library
 
 import android.net.Uri
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -37,6 +39,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import com.example.womencare.ui.auth.signin.viewmodel.LanguageViewModel
 @Composable
 fun CounselingFlowScreen(
@@ -381,6 +385,7 @@ fun PreviewCounselingFlowScreen() {
     }
 }
 
+
 @Composable
 fun CervicalCancerInfoScreen(
     navController: NavController,
@@ -548,6 +553,31 @@ fun BulletPoints(items: List<String>) {
                 modifier = Modifier.padding(start = 8.dp, bottom = 4.dp)
             )
         }
+    }
+}
+
+@Composable
+fun TwoImagesTopBottom() {
+    Box(modifier = Modifier.fillMaxSize()) {
+        Image(
+            painter = painterResource(id = R.drawable.image),
+            contentDescription = "Top Image",
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.TopCenter)
+                .height(250.dp),
+            contentScale = ContentScale.Crop
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.image2),
+            contentDescription = "Bottom Image",
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
+                .height(250.dp),
+            contentScale = ContentScale.Crop
+        )
     }
 }
 
