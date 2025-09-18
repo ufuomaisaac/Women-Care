@@ -19,6 +19,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -77,8 +78,8 @@ fun  MainScreen(
                         },
                         //alwaysShowLabel = false,
                         label = {
-                            Text(text = stringResource(destination.titleRes))
-                                //color = Color.White)
+                            Text(text = stringResource(destination.titleRes),
+                                fontSize = 10.sp)
                         },
 
                         onClick = {
@@ -111,11 +112,13 @@ fun  MainScreen(
             }
 
             composable(MainBottomDestinations.Library.route) {
-                //CervicalCancerInfoScreen(navController = navController,languageViewModel = languageViewModel)
-                TwoImagesFullVertical()
-
-
+                CervicalCancerInfoScreen(navController = navController,languageViewModel = languageViewModel)
             }
+
+            composable(route = MainBottomDestinations.Image.route) {
+                TwoImagesFullVertical()
+            }
+
             composable(MainBottomDestinations.Map.route) {
                 ScreeningTrackerScreen(languageViewModel = languageViewModel)
 
