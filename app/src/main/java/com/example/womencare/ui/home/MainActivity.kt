@@ -32,7 +32,8 @@ import com.example.womencare.ui.library.ArticleItem
 import com.example.womencare.ui.library.Articles
 import com.example.womencare.ui.library.CervicalCancerInfoScreen
 import com.example.womencare.ui.library.CounselingFlowScreen
-import com.example.womencare.ui.library.TwoImagesTopBottom
+import com.example.womencare.ui.library.TwoImagesFullVertical
+
 
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -110,7 +111,8 @@ fun  MainScreen(
             }
 
             composable(MainBottomDestinations.Library.route) {
-                CervicalCancerInfoScreen(navController = navController,languageViewModel = languageViewModel)
+                //CervicalCancerInfoScreen(navController = navController,languageViewModel = languageViewModel)
+                TwoImagesFullVertical()
 
 
             }

@@ -556,16 +556,20 @@ fun BulletPoints(items: List<String>) {
     }
 }
 
+
+
 @Composable
-fun TwoImagesTopBottom() {
-    Box(modifier = Modifier.fillMaxSize()) {
+fun TwoImagesFullVertical() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
         Image(
             painter = painterResource(id = R.drawable.image),
             contentDescription = "Top Image",
             modifier = Modifier
-                .fillMaxWidth()
-                .align(Alignment.TopCenter)
-                .height(250.dp),
+                .weight(1f) // takes half of the screen
+                .fillMaxWidth(),
             contentScale = ContentScale.Crop
         )
 
@@ -573,9 +577,8 @@ fun TwoImagesTopBottom() {
             painter = painterResource(id = R.drawable.image2),
             contentDescription = "Bottom Image",
             modifier = Modifier
-                .fillMaxWidth()
-                .align(Alignment.BottomCenter)
-                .height(250.dp),
+                .weight(1f) // takes half of the screen
+                .fillMaxWidth(),
             contentScale = ContentScale.Crop
         )
     }
