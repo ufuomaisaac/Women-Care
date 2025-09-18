@@ -2,6 +2,7 @@ package com.example.womencare.ui.home
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Architecture
 import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
@@ -30,6 +31,12 @@ sealed class MainBottomDestinations(
         titleRes = R.string.library,
         icon = Icons.Filled.Book
     )
+    object Image: MainBottomDestinations(
+        route = "images",
+        titleRes = R.string.images,
+        icon = Icons.Filled.Architecture
+    )
+
     object Map: MainBottomDestinations(
         route = "map",
         titleRes = R.string.maps,
@@ -40,5 +47,6 @@ sealed class MainBottomDestinations(
 val BottomDestinationa = listOf(
     MainBottomDestinations.Home,
     MainBottomDestinations.Library,
+    MainBottomDestinations.Image,
     MainBottomDestinations.Map
 )

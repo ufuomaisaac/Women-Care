@@ -1,8 +1,10 @@
 package com.example.womencare.ui.library
 
 import android.net.Uri
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -37,6 +39,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import com.example.womencare.ui.auth.signin.viewmodel.LanguageViewModel
 @Composable
 fun CounselingFlowScreen(
@@ -381,6 +385,7 @@ fun PreviewCounselingFlowScreen() {
     }
 }
 
+
 @Composable
 fun CervicalCancerInfoScreen(
     navController: NavController,
@@ -550,6 +555,67 @@ fun BulletPoints(items: List<String>) {
         }
     }
 }
+
+
+
+@Composable
+fun TwoImagesFullVertical() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.image),
+            contentDescription = "Top Image",
+            modifier = Modifier
+                .weight(1f) // takes half of the screen
+                .fillMaxWidth(),
+            contentScale = ContentScale.Crop
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.image2),
+            contentDescription = "Bottom Image",
+            modifier = Modifier
+                .weight(1f) // takes half of the screen
+                .fillMaxWidth(),
+            contentScale = ContentScale.Crop
+        )
+    }
+}
+
+@Composable
+fun ImageScrollScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()) // 🔹 Make it scrollable
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp) // spacing between images
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.image),
+            contentDescription = "First image",
+            modifier = Modifier.fillMaxWidth(), // keeps natural height
+            contentScale = ContentScale.Fit // keeps original ratio
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.image2),
+            contentDescription = "Second image",
+            modifier = Modifier.fillMaxWidth(),
+            contentScale = ContentScale.Fit
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.image3),
+            contentDescription = "Third image",
+            modifier = Modifier.fillMaxWidth(),
+            contentScale = ContentScale.Fit
+        )
+    }
+}
+
 
 
 
