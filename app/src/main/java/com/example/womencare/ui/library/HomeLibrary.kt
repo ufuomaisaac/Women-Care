@@ -558,7 +558,7 @@ fun BulletPoints(items: List<String>) {
 
 
 
-@Composable
+/*@Composable
 fun TwoImagesFullVertical() {
     Column(
         modifier = Modifier
@@ -582,7 +582,40 @@ fun TwoImagesFullVertical() {
             contentScale = ContentScale.Crop
         )
     }
+}*/
+
+@Composable
+fun ImageScrollScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()) // 🔹 Make it scrollable
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp) // spacing between images
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.image),
+            contentDescription = "First image",
+            modifier = Modifier.fillMaxWidth(), // keeps natural height
+            contentScale = ContentScale.Fit // keeps original ratio
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.image2),
+            contentDescription = "Second image",
+            modifier = Modifier.fillMaxWidth(),
+            contentScale = ContentScale.Fit
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.image3),
+            contentDescription = "Third image",
+            modifier = Modifier.fillMaxWidth(),
+            contentScale = ContentScale.Fit
+        )
+    }
 }
+
 
 
 
