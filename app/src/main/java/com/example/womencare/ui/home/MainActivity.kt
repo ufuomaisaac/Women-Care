@@ -133,7 +133,7 @@ fun  MainScreen(
                     topic = "Balancing Nutrients", navController = navController )
             }
             composable(Articles.SecondArticle.name) {
-                ArticleItem(imageIdRes = R.drawable.ab2_quick_yoga, firstTextIdRes = R.string.article_innovations,
+                ArticleItem(imageIdRes = R.drawable.ab2_quick_yoga, firstTextIdRes = R.string.second_article,
                     topic = "Embracing Your Changing Body", navController = navController )
 
             }
