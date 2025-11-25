@@ -137,14 +137,14 @@ fun CounselingFlowScreen(
                 O ti dé ibi ti o yẹ̀ — ó túmọ̀ sí pé ìwọ bára rẹ̀ nínú.
                 Ìwọ ni ìyá, arábìnrin, aya, olórí — ìlera rẹ̀ jẹ́ bí ìbelẹ̀ fún ẹbí rẹ.
                 Má ṣiyèméjì! Jẹ́ ká forúkọsílẹ̀ fún ìdánwò rẹ̀ lónìí.
-                MomaCare wà pẹ̀lú rẹ — ìdánwò kékeré, àlàáfíà tó pé.
+                CerviHealthCoApp wà pẹ̀lú rẹ — ìdánwò kékeré, àlàáfíà tó pé.
                 """.trimIndent()
             else
                 """
                 You’ve come this far—that means you care.
                 You’re a mother, sister, wife, leader—your health matters to your family.
                 Don’t wait—let’s book your screening today.
-                MomaCare is with you—even a small test can bring peace of mind.
+                CerviHealthCoApp is with you—even a small test can bring peace of mind.
                 """.trimIndent()
         )
 
