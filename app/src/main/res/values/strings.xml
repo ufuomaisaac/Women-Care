@@ -10,41 +10,138 @@
     <string name="images_yo">Àwòrán</string>
     <string name="maps_yo">Maapu</string>
 
-    <string name="first_article_preview">  Do you know that a healthy diet can increase your fertility and prepare your body better for pregnancy? This means that your diet is not something you should be taking without proper considerations…</string>
-    <string name="first_article"> What is a healthy diet?
-            Do you know that a healthy diet can increase your fertility and prepare your body better for pregnancy? This means that your diet is not something you should be taking without proper considerations.
-            A healthy diet, also a balanced diet, is a diet that involves the right proportions of all the seven classes of food needed for proper nourishment of your body.
-          In case you cannot decide whether your diets are healthy or not, do not hesitate to contact your doctor. Together with him/her, you can draft out a nutritional weekly food timetable.
 
- What to eat and what to avoid eating
-        There are so many diets around that have been proven medically to be healthy, and which can in turn benefits your body and health. Some of them include:
--Fruits — like, pineapples, watermelons, apples, berries, oranges, mango, and bananas
--Starchy foods— like potatoes, millet, yams, oatmeal, bulgur, and whole-wheat bread
--Proteins — like lean meats(minus liver), and chicken, eggs, seafood, beans and lentils
--Oils(in the right quantity) - like olive oil, vegetable oil, and oils in foods like seafood, avocado, and nuts
-- Plenty of water
-
-          So, what are the foods you should try your possible best to avoid?
--Fish that have small amounts of mercury,e.g, bluefin tuna, swordfish, shark, mackerel.
--Food and drinks that have caffeine are bad for you. Caffeine can be found in substances like tea, chocolate ,energy drinks, soda, etc. Your daily caffeine intake should not exceed 200 milligrams.
--Refrigerated pates, smoked seafood or meat spreads
-        -Herbal products
-- Alcohol ( in any amount)
--Unpasteurized juice, milk, soft cheeses, and so on.
+    <string name="first_article_preview">
+Did you know that eating a healthy diet can improve fertility and better prepare your body for pregnancy? What you eat plays a very important role in your overall health and should never be taken lightly…
 </string>
-    <string name="second_article_preview">Many a time a lot of women fidget about the body transformations that will occur during their pregnancy periods. Some even go as far as delaying getting pregnant because of this issue. While this kind of body transformations are inevitable and vary from women to women,you are not meant to be ashamed of them. By doing this, you will feel confident in yourself and have your self-esteem intact.
+    <string name="first_article">
+What Is a Healthy Diet?
+
+Did you know that eating a healthy diet can improve fertility and help prepare your body for pregnancy? This means that your daily meals should be chosen carefully and with proper understanding.
+
+A healthy diet, also known as a balanced diet, includes the right amounts of all the major food groups your body needs to function well and stay strong.
+
+If you are unsure whether your current diet is healthy, do not hesitate to speak with a doctor or nutrition professional. Together, you can create a weekly meal plan that supports your health and pregnancy goals.
+
+What to Eat and What to Avoid
+
+Many diets have been medically proven to support good health. Some healthy food choices include:
+
+• Fruits such as pineapple, watermelon, apples, berries, oranges, mangoes, and bananas
+• Starchy foods like potatoes, millet, yam, oatmeal, bulgur, and whole-wheat bread
+• Protein sources such as lean meat (excluding liver), chicken, eggs, seafood, beans, and lentils
+• Healthy oils (in moderation), including olive oil, vegetable oil, and oils found in fish, avocado, and nuts
+• Plenty of clean drinking water
+
+Foods and drinks you should try to avoid include:
+
+• Fish that contain high levels of mercury, such as bluefin tuna, swordfish, shark, and mackerel
+• Foods and drinks containing caffeine, including tea, chocolate, energy drinks, and soda. Daily caffeine intake should not exceed 200 milligrams
+• Refrigerated pâté, smoked seafood, or processed meat spreads
+• Herbal products that have not been medically approved
+• Alcohol, in any amount
+• Unpasteurized juice, milk, soft cheeses, and similar products
+
+Choosing a healthy diet is an important step toward a safe pregnancy and long-term wellbeing.
 </string>
-    <string name="second_article">  Many a time a lot of women fidget about the body transformations that will occur during their pregnancy periods. Some even go as far as delaying getting pregnant because of this issue. While this kind of body transformations are inevitable and vary from women to women,you are not meant to be ashamed of them. By doing this, you will feel confident in yourself and have your self-esteem intact.
-            There are three stages of pregnancy every woman must pass through, namely: first trimester(conception to 12 weeks), second trimester(13 to 27 weeks),  third trimester (28 to 40 weeks). With each trimester comes a fairly distinct kind of transformation your body must go throughFirst trimester:In the first trimester, your baby\'s little body starts taking shape, and all those tiny organs begin to form. Meanwhile, your own body goes through some pretty big adjustments too. You might notice things like feeling queasy, super tired, and making more trips to the bathroom than usual. This stage is mostly filled with a lot of emotional and physical changes, which can be overwhelming (especially for the first timers). Furthermore, your hormones tend to be hyperactive during this stage, thereby contributing to these unpleasant pregnancy symptoms(such as frequent mood swings ) you will be experiencing.
-          A supportive bra will also be needed due to the enlargement of your mammary glands, causing your breasts to swell in preparation for successful breastfeeding process. In addition, the veins on your breasts become more noticeable. Also, you need to consider wearing bigger clothes to prevent tightening your body.
+
+    <string name="first_article_preview_yo">
+Ṣé o mọ̀ pé oúnjẹ tó dára lè túbọ̀ mu ìbímọ́ rọrùn, kí ó sì tún pèsè ara rẹ dáadáa fún oyun? Ohun tí o ń jẹ lojoojúmọ́ jẹ́ apakan pàtàkì nínú ìlera rẹ, kò sì yẹ kí a foju kọ́ ọ…
+</string>
+
+    <string name="first_article_yo">
+Kí ni Oúnjẹ Tó Dáa?
+
+Ṣé o mọ̀ pé oúnjẹ tó dára lè túbọ̀ mu ìbímọ́ rọrùn, kí ó sì pèsè ara rẹ dáadáa fún oyun? Èyí túmọ̀ sí pé oúnjẹ tí o ń jẹ lojoojúmọ́ yẹ kí o jẹ́ pẹ̀lú ìmúlòye àti àyẹ̀wò dáadáa.
+
+Oúnjẹ tó dáa, tí a tún ń pè ní oúnjẹ tó dájú, ni oúnjẹ tí ó ní ìwọ̀n tó péye lára gbogbo ẹgbẹ̀ oúnjẹ pàtàkì tí ara ènìyàn nílò fún ìlera, agbára, àti ìdagbasoke.
+
+Tí o bá ń ṣiyèméjì bóyá oúnjẹ tí o ń jẹ dára tàbí kò dára, má ṣe ṣiyèméjì láti bá dókítà tàbí amọ̀ja oúnjẹ sọ̀rọ̀. Pẹ̀lú ìtóju wọn, o lè ṣètò àtòjọ oúnjẹ ọ̀sẹ̀ kan tó máa ràn ara rẹ lọ́wọ́ dáadáa.
+
+Ohun Tí O Yẹ Kí O Jẹ àti Ohun Tí O Yẹ Kí O Yàgò Fún
+
+Ọ̀pọ̀ irú oúnjẹ ló wà tí ìmọ̀ ìṣègùn ti fìdí rẹ̀ múlẹ̀ pé wọ́n dára fún ara ènìyàn. Àwọn àpẹẹrẹ ni:
+
+• Eso bíi oyinbo, elegede, àpù, eso kékeré, ọsan, mango àti ogede
+• Oúnjẹ sitashi bíi poteto, oka ilẹ̀, iṣu, oatmeal, bulgur àti burẹdi alikama gidi
+• Amuaradagba bíi ẹran tí kì í ní ọra púpọ̀, adìẹ, ẹyin, ẹja omi, ẹ̀wa àti lentili
+• Òróró tó dára (ní ìwọ̀n tó péye), bíi òróró olifi, òróró ẹfọ́, àti òróró inú ẹja, avocado àti èso igi
+• Omi mímu tó mọ́, púpọ̀
+
+Àwọn ohun tí o yẹ kí o gbìyànjú láti yàgò fún ni:
+
+• Ẹja tí ó ní mercury púpọ̀, bíi bluefin tuna, swordfish, shark àti mackerel
+• Oúnjẹ àti mímu tí ó ní caffeine, bíi tii, ṣọ́kọ́lẹ́ẹ̀tì, mímu agbára àti soda. Kò yẹ kí caffeine ojoojúmọ́ ju miligiramu 200 lọ
+• Pate tí a fi sínú firiji, ẹja tàbí ẹran tí a ti sun tí a fọ́ sílẹ̀
+• Àwọn ohun èlò ewé ìwòsàn tí kò tíì ní ìtẹ́wọ́gbà ìṣègùn
+• Ọtí, ní ìwọ̀n kankan
+• Omi eso, wara, warankasi rọrùn àti àwọn oúnjẹ tí a kò tíì paṣítọ́ọ̀sì
+
+Yíyan oúnjẹ tó dáa jẹ́ ìgbésẹ̀ pàtàkì sí ìlera rere àti oyun aláàbò.
 </string>
 
 
-    <string name="third_article">   Based on the research conducted by American Congress of Obstetricians and Gynecologists (ACOG), between 14-23% of women will struggle with some symptoms of depression during pregnancy. Depression is a frequent health condition that brings about repeated feelings of gloominess and changes in how you think, eat and act. It is something that should not be taken with levity hands, as it can both be dangerous to you and your baby\'s health.
-           Depression can take in any forms like bipolar II disorder, postpartum depression, and so on. So, you should be sensitive enough to your mood to detect any form of depression symptoms - sleep disturbances, suicidal thoughts, self-hatred, restlessness, irritability, anger outbursts, et cetera.Causes of Depression.What are the factors that can make you susceptible to depression? There are countless reasons that can lead you into depression or dejection. These reasons are a mix of social, psychological, economical and biological factors, some of which are highlighted below:-Loss of loved ones like husbands, family members, friends. -Physical or verbal abuse can contribute to depression.-Certain drugs like isotretinoin and corticosteroids can increase your risk of getting depressed.-Unpleasant life events like money worries, divorce, illness, miscarriage.
+
+    <string name="second_article_preview">
+Many women worry about the physical changes that happen during pregnancy. Some even delay getting pregnant because of these concerns. While these changes are natural and differ from one woman to another, there is no reason to feel ashamed of your body.
+</string>
+    <string name="second_article">
+Many women feel anxious about the physical changes that occur during pregnancy. Some even postpone pregnancy because of these worries. Although these changes are natural and vary from woman to woman, there is no reason to feel embarrassed or ashamed of your body.
+
+Learning to accept these changes can help you feel more confident and maintain healthy self-esteem throughout pregnancy.
+
+Pregnancy occurs in three main stages known as trimesters:
+• First trimester: conception to 12 weeks
+• Second trimester: 13 to 27 weeks
+• Third trimester: 28 to 40 weeks
+
+Each trimester brings its own physical and emotional changes.
+
+During the first trimester, your baby’s body begins to form, and vital organs start developing. At the same time, your body undergoes significant adjustments. You may experience nausea, fatigue, frequent urination, and emotional ups and downs.
+
+Hormonal changes during this stage can be intense, especially for first-time mothers, and may cause mood swings and discomfort.
+
+As your breasts begin to enlarge in preparation for breastfeeding, wearing a supportive bra becomes important. Veins on the breasts may become more visible, and choosing loose, comfortable clothing can help reduce discomfort.
+</string>
+    <string name="second_article_preview_yo">
+Ọ̀pọ̀ obìnrin máa ń ṣàníyàn nípa ayípadà ara tí yóò ṣẹlẹ̀ nígbà oyun. Diẹ̀ ninu wọn kì í ṣe kó tó débi pé wọ́n máa ń fi oyun sílẹ̀. Bí ó tilẹ̀ jẹ́ pé ayípadà wọ̀nyí jẹ́ adayeba, kò sí ohun tí o yẹ kí o fi tiju ara rẹ.
+</string>
+    <string name="second_article_yo">
+Ọ̀pọ̀ obìnrin máa ń ní ìbànújẹ̀ tàbí ìbẹ̀rù nípa ayípadà ara tí yóò ṣẹlẹ̀ nígbà oyun. Diẹ̀ ninu wọn kì í ṣe kó tó débi pé wọ́n máa ń dá oyun dúró. Bí ó tilẹ̀ jẹ́ pé ayípadà ara wọ̀nyí jẹ́ adayeba, wọ́n sì ń yàtọ̀ láti ọ̀dọ̀ obìnrin kan sí omíì, kò sí ìdí kankan láti fi tiju ara rẹ.
+
+Gbigba ayípadà ara rẹ gẹ́gẹ́ bí apakan ìrìnàjò oyun lè mú ìgboyà ara ẹni pọ̀ sí i, kí o sì ní ìmọ̀lára rere nípa ara rẹ.
+
+Oyun ní àkókò mẹ́ta pàtàkì tí a ń pè ní trimester:
+• Àkókò kìnní: láti ìbímọ́ dé ọ̀sẹ̀ kejìlá
+• Àkókò kejì: láti ọ̀sẹ̀ kẹtàlá dé ogún-dín-lọ́gbọ̀n
+• Àkókò kẹta: láti ọ̀sẹ̀ kọkànlá-dín-lọ́gbọ̀n dé ogójì
+
+Pẹ̀lú ọkọọkan àkókò wọ̀nyí ni ara obìnrin máa ń ní ayípadà tirẹ̀.
+
+Ní àkókò kìnní, ara ọmọ inú bẹ̀rẹ̀ sí í dá sílẹ̀, gbogbo àwọn ara pàtàkì rẹ̀ sì ń dá sílẹ̀ díẹ̀ díẹ̀. Ní àkókò kan náà, ara ìyá tún ń ṣe àtúnṣe púpọ̀. O lè máa ń rí ìrora inú, ìrẹ̀wẹ̀sì, ìlọ sí ilé ìgbònsẹ̀ lọ́pọ̀lọpọ̀, àti ayípadà ìmọ̀lára.
+
+Àwọn homonu ara máa ń pọ̀ sí i ní àkókò yìí, èyí sì lè fa ayípadà ìmọ̀lára àti ìbànújẹ̀, pàápàá jùlọ fún àwọn tí wọ́n ń loyun fún ìgbà àkọ́kọ́.
+
+Bí àyà ṣe ń túbọ̀ pọ̀ sí i ní ìmúrasílẹ̀ fún mímu ọmọ, ó ṣe pàtàkì kí o lo bra tó dára tó sì lè fún ọ ní àtìlẹ́yìn. Àwọn ẹ̀jẹ̀ inú àyà lè hàn kedere sí i, nítorí náà yíyan aṣọ tó túbọ̀ rọrùn àti tó tobi díẹ̀ lè jẹ́ ìrànlọ́wọ́ púpọ̀.
 </string>
 
-    <string name="third_article_preview">Based on the research conducted by American Congress of Obstetricians and Gynecologists (ACOG), between 14-23% of women will struggle with some symptoms of depression during pregnancy. Depression is a frequent health condition that brings about repeated feelings...</string>
+
+    <string name="article_topic_balancing_nutrients_yo">
+Ìdọ́gba Àwọn Oúnjẹ
+</string>
+    <string name="article_topic_changing_body_yo">
+Gbigba Ayípadà Ara Rẹ
+</string>
+
+    <string name="article_topic_balancing_nutrients">
+Balancing Nutrients
+</string>
+    <string name="article_topic_changing_body">
+Embracing Your Changing Body
+</string>
+
+
+
     <string name="title_activity_splash">SplashActivity</string>
     <string name="article_global_overview">
         <![CDATA[

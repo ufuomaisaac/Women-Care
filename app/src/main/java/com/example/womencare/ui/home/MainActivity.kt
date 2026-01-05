@@ -130,7 +130,6 @@ fun  MainScreen(
             }
 
             composable(route = MainBottomDestinations.Image.route) {
-                //ImageScrollScreen()
                 TwoImagesFullVertical()
 
 
@@ -141,17 +140,38 @@ fun  MainScreen(
 
             }
 
-            composable(Articles.FirstArticle.name) {
-                Article(imageIdRes = R.drawable.ab3_stretching, firstTextIdRes = R.string.article_warning_signs,
-                    topic = "Balancing Nutrients", navController = navController )
-            }
-            composable(Articles.SecondArticle.name) {
-                Article(imageIdRes = R.drawable.ab2_quick_yoga, firstTextIdRes = R.string.second_article,
-                    topic = "Embracing Your Changing Body", navController = navController )
+        composable(Articles.FirstArticle.name) {
+            Article(
+                imageIdRes = R.drawable.ab3_stretching,
 
-            }
+                textEnRes = R.string.first_article,
+                textYoRes = R.string.first_article_yo,
 
+                topicEn = stringResource(R.string.article_topic_balancing_nutrients),
+                topicYo = stringResource(R.string.article_topic_balancing_nutrients_yo),
+
+                isYoruba = isYoruba,
+                navController = navController
+            )
         }
+
+        composable(Articles.SecondArticle.name) {
+            Article(
+                imageIdRes = R.drawable.ab2_quick_yoga,
+
+                textEnRes = R.string.second_article,
+                textYoRes = R.string.second_article_yo,
+
+                topicEn = stringResource(R.string.article_topic_changing_body),
+                topicYo = stringResource(R.string.article_topic_changing_body_yo),
+
+                isYoruba = isYoruba,
+                navController = navController
+            )
+        }
+
+
+    }
     }
 }
 

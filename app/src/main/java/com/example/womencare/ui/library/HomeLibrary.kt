@@ -398,10 +398,6 @@ fun CervicalCancerInfoScreen(
     val uri1 = Uri.parse("android.resource://${context.packageName}/${R.raw.eliminating_cervical_cancer}")
     val uri2 = Uri.parse("android.resource://${context.packageName}/${R.raw.video1}")
 
-    val articles = listOf(
-        ArticleData("🚨 Early Signs & Screening:", "What Every Woman Should Know", R.drawable.ab3_stretching, "23/12/2021"),
-        ArticleData("Burden & Prevention", "Global Overview of Cervical Cancer", R.drawable.ab6_pre_natal_yoga, "23/12/2021"),
-    )
 
     Column(
         modifier = Modifier
@@ -518,9 +514,18 @@ fun CervicalCancerInfoScreen(
         Spacer(Modifier.height(16.dp))
         Text(if (isYoruba) "Àwọn Ìtàn Ìlera" else "Health Tips Articles", style = MaterialTheme.typography.headlineSmall)
         Spacer(Modifier.height(8.dp))
-        articles.forEach { art ->
-            ArticleCard(article = art, onItemClicked = { navController.navigate(Articles.FirstArticle.name) })
-            Spacer(Modifier.height(8.dp))
+        articles.forEach { article ->
+            articles.forEach { article ->
+                ArticleCard(
+                    article = article,
+                    isYoruba = isYoruba,
+                    onItemClicked = {
+                        // this is wrong, every articles show the content of the first article
+                        navController.navigate(Articles.FirstArticle.name)
+                    }
+                )
+                Spacer(Modifier.height(8.dp))
+            }
         }
 
         Spacer(Modifier.height(16.dp))

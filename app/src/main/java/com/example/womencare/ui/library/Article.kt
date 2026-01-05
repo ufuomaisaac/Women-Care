@@ -37,41 +37,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.womencare.R
 
-//@Composable
-/*fun ArticleCard(article: ArticleData, onItemClicked : () -> Unit ) {
-    Card(
-        shape = RoundedCornerShape(12.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onItemClicked)
-    ) {
-        Row(
-            modifier = Modifier.padding(12.dp),
-            verticalAlignment = Alignment.Top
-        ) {
-            Image(
-                painter = painterResource(id = article.imageRes),
-                contentDescription = "Article Image",
-                modifier = Modifier
-                    .size(80.dp)
-                    .clip(RoundedCornerShape(8.dp)),
-                contentScale = ContentScale.Crop
-            )
-
-            Spacer(modifier = Modifier.width(12.dp))
-
-            Column(modifier = Modifier.weight(1f)) {
-                Text(text = article.title, fontWeight = FontWeight.Bold, maxLines = 2)
-                Text(text = article.description, style = androidx.compose.material3.MaterialTheme.typography.bodySmall, maxLines = 2)
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                    Text(text = "Posted: ${article.postDate}", style = androidx.compose.material3.MaterialTheme.typography.bodySmall)
-            }
-        }
-    }
-}*/
 
 @Composable
 fun ArticleCard(
@@ -129,77 +94,6 @@ fun ArticleCard(
 }
 
 
-/*@Composable
-fun Article(
-    modifier: Modifier = Modifier,
-    @DrawableRes imageIdRes: Int,
-    @StringRes firstTextIdRes: Int,
-    topic: String,
-    navController: NavController
-) {
-    Column(modifier = modifier.fillMaxSize()) {
-        SignInTopAppBar(
-            topAppBarTitle = topic,
-            NavUp = { navController.popBackStack() }
-        )
-
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(androidx.compose.material3.MaterialTheme.colorScheme.background)
-        ) {
-            item {
-
-                Image(
-                    painter = painterResource(id = imageIdRes),
-                    contentDescription = "Article Image",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(220.dp)
-                        .clip(RoundedCornerShape(8.dp))
-                        .padding(16.dp),
-                    contentScale = ContentScale.Crop
-                )
-
-                Text(
-                    text = topic,
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                    style = androidx.compose.material3.MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text(
-                    text = stringResource(id = firstTextIdRes),
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                    style = androidx.compose.material3.MaterialTheme.typography.bodyLarge.copy(lineHeight = 24.sp),
-                    textAlign = TextAlign.Justify
-                )
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                Surface(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp),
-                    color = Color.LightGray,
-                    shape = RoundedCornerShape(6.dp)
-                ) {
-                    Text(
-                        text = "yacohchuk/Getty Images",
-                        style = androidx.compose.material3.MaterialTheme.typography.labelSmall.copy(color = Color.Black),
-                        modifier = Modifier
-                            .padding(8.dp)
-                            .align(Alignment.CenterHorizontally)
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(32.dp))
-            }
-        }
-    }
-}*/
-
 
 @Composable
 fun Article(
@@ -254,15 +148,6 @@ fun Article(
 }
 
 
-
-
-
-/*data class ArticleData(
-    val title: String,
-    val description: String,
-    val imageRes: Int,  // Store image as a resource ID
-    val postDate: String
-)*/
 val articles = listOf(
     ArticleData(
         titleEn = "Early Signs & Screening",
