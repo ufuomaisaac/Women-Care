@@ -11,6 +11,7 @@ import androidx.compose.material.icons.filled.Map
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.womencare.R
 
+/*
 
 sealed class MainBottomDestinations(
     var route: String,
@@ -50,3 +51,49 @@ val BottomDestinationa = listOf(
     MainBottomDestinations.Image,
     MainBottomDestinations.Map
 )
+*/
+
+
+sealed class MainBottomDestinations(
+    val route: String,
+    @StringRes val titleEn: Int,
+    @StringRes val titleYo: Int,
+    val icon: ImageVector
+) {
+
+    object Home : MainBottomDestinations(
+        route = "overview",
+        titleEn = R.string.home,
+        titleYo = R.string.home_yo,
+        icon = Icons.Filled.Home
+    )
+
+    object Library : MainBottomDestinations(
+        route = "library",
+        titleEn = R.string.library,
+        titleYo = R.string.library_yo,
+        icon = Icons.Filled.Book
+    )
+
+    object Image : MainBottomDestinations(
+        route = "images",
+        titleEn = R.string.images,
+        titleYo = R.string.images_yo,
+        icon = Icons.Filled.Architecture
+    )
+
+    object Map : MainBottomDestinations(
+        route = "map",
+        titleEn = R.string.maps,
+        titleYo = R.string.maps_yo,
+        icon = Icons.Filled.LocationOn
+    )
+}
+
+val BottomDestinations = listOf(
+    MainBottomDestinations.Home,
+    MainBottomDestinations.Library,
+    MainBottomDestinations.Image,
+    MainBottomDestinations.Map
+)
+

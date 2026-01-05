@@ -15,6 +15,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -62,6 +63,9 @@ fun  MainScreen(
     context: MainActivity,
     languageViewModel: LanguageViewModel
 ) {
+
+    val isYoruba by languageViewModel.isYoruba.collectAsState()
+
     var navController: NavHostController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     var currentDestinations = navBackStackEntry?.destination
@@ -71,39 +75,50 @@ fun  MainScreen(
             BottomNavigation(
                 backgroundColor = Color.LightGray
             ) {
-                BottomDestinationa.forEach { destination ->
-                    BottomNavigationItem(
-                        selected = destination.route == currentDestinations?.route,
-                        icon = {
-                            Icon(imageVector = destination.icon, contentDescription = "")
-                        },
-                        //alwaysShowLabel = false,
-                        label = {
-                            Text(text = stringResource(destination.titleRes),
-                                fontSize = 10.sp)
-                        },
+                BottomDestinations.forEach { destination ->
 
-                        onClick = {
-                            navController.navigate(destination.route) {
-                                // Pop up to the start destination of the graph to
-                                // avoid building up a large stack of destinations
-                                // on the back stack as users select items
-                                popUpTo(navController.graph.findStartDestination().id) {
-                                    saveState = true
-                                }
-                                // Avoid multiple copies of the same destination when
-                                // reselecting the same item
-                                launchSingleTop = true
-                                // Restore state when reselecting a previously selected item
-                                restoreState = true
-                            }
+                    val selected = destination.route == currentDestinations?.route
+
+                    BottomNavigationItem(
+                        selected = selected,
+                        icon = {
+                            Icon(
+                                imageVector = destination.icon,
+                                contentDescription = null
+                            )
                         },
+                        label = {
+                            Text(
+                                text = stringResource(
+                                    id = if (isYoruba) {
+                                        destination.titleYo
+                                    } else {
+                                        destination.titleEn
+                                    }
+                                ),
+                                fontSize = 10.sp
+                            )
+                        },
+                        onClick = {
+                            if (!selected) {
+                                navController.navigate(destination.route) {
+                                    popUpTo(
+                                        navController.graph.findStartDestination().id
+                                    ) {
+                                        saveState = true
+                                    }
+                                    launchSingleTop = true
+                                    restoreState = true
+                                }
+                            }
+                        }
                     )
                 }
             }
         }
-    ) {padding ->
-        NavHost(navController = navController,
+    ) { padding ->
+        // Your NavHost / screen content
+    NavHost(navController = navController,
             startDestination = MainBottomDestinations.Home.route,
             modifier = Modifier.padding(padding)) {
 
