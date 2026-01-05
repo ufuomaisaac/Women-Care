@@ -515,17 +515,15 @@ fun CervicalCancerInfoScreen(
         Text(if (isYoruba) "Àwọn Ìtàn Ìlera" else "Health Tips Articles", style = MaterialTheme.typography.headlineSmall)
         Spacer(Modifier.height(8.dp))
         articles.forEach { article ->
-            articles.forEach { article ->
-                ArticleCard(
-                    article = article,
-                    isYoruba = isYoruba,
-                    onItemClicked = {
-                        // this is wrong, every articles show the content of the first article
-                        navController.navigate(Articles.FirstArticle.name)
-                    }
-                )
-                Spacer(Modifier.height(8.dp))
-            }
+            ArticleCard(
+                article = article,
+                isYoruba = isYoruba,
+                onItemClicked = {
+                    // this is wrong, every articles show the content of the first article
+                    navController.navigate(Articles.FirstArticle.name)
+                }
+            )
+            Spacer(Modifier.height(8.dp))
         }
 
         Spacer(Modifier.height(16.dp))
