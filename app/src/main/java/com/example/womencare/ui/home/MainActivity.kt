@@ -30,14 +30,12 @@ import androidx.navigation.compose.rememberNavController
 import com.example.womencare.R
 import com.example.womencare.theme.WomenCareTheme
 import com.example.womencare.ui.auth.signin.viewmodel.LanguageViewModel
-import com.example.womencare.ui.library.ArticleItem
+import com.example.womencare.ui.library.Article
 import com.example.womencare.ui.library.Articles
 import com.example.womencare.ui.library.CervicalCancerInfoScreen
 import com.example.womencare.ui.library.CounselingFlowScreen
 import com.example.womencare.ui.library.ImageScrollScreen
 import com.example.womencare.ui.library.TwoImagesFullVertical
-
-
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -144,11 +142,11 @@ fun  MainScreen(
             }
 
             composable(Articles.FirstArticle.name) {
-                ArticleItem(imageIdRes = R.drawable.ab3_stretching, firstTextIdRes = R.string.article_warning_signs,
+                Article(imageIdRes = R.drawable.ab3_stretching, firstTextIdRes = R.string.article_warning_signs,
                     topic = "Balancing Nutrients", navController = navController )
             }
             composable(Articles.SecondArticle.name) {
-                ArticleItem(imageIdRes = R.drawable.ab2_quick_yoga, firstTextIdRes = R.string.second_article,
+                Article(imageIdRes = R.drawable.ab2_quick_yoga, firstTextIdRes = R.string.second_article,
                     topic = "Embracing Your Changing Body", navController = navController )
 
             }
